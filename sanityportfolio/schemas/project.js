@@ -4,6 +4,7 @@ const projectSchema = {
 	name: 'project',
 	title: 'Project',
 	type: 'document',
+	fieldsets: [{ name: 'media', title: 'Media' }],
 
 	fields: [
 		{
@@ -44,13 +45,25 @@ const projectSchema = {
 			options: {
 				hotspot: true,
 			},
+			fieldset: 'media',
 		},
 		{
-			name: 'media',
-			title: 'Media',
-			description: 'Images and videos that will be displayed on the show page for the project.',
+			name: 'images',
+			title: 'Images',
+			description: 'Images that will be displayed on the show page for the project.',
 			type: 'array',
-			of: [{ type: 'file' }],
+			of: [{ type: 'image' }],
+			fieldset: 'media',
+		},
+		{
+			name: 'video',
+			title: 'Video',
+			description: 'Video that will be displayed on the show page',
+			type: 'file',
+			options: {
+				accept: ['.mp4', '.mov', '.wmv', '.flv', '.avi', '.webm', '.mkv'],
+			},
+			fieldset: 'media',
 		},
 		{
 			name: 'blurb',
@@ -86,6 +99,12 @@ const projectSchema = {
 			type: 'url',
 		},
 	],
+	preview: {
+		select: {
+			title: 'title',
+			media: 'coverImage',
+		},
+	},
 };
 
 export default projectSchema;

@@ -1,0 +1,11 @@
+body,
+html {
+	background-image: url('https://raw.githubusercontent.com/Ethan-Greaves/Portfolio/master/Pictures/DeepSpace.jpg?token=AKPOE2JHWGP7FPHFK437GF3AEVXA6');
+}
+
+canvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}

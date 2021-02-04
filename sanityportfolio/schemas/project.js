@@ -24,10 +24,9 @@ const projectSchema = {
 		{
 			name: 'created',
 			title: 'Created',
-			description: 'Which year was the project created?',
 			type: 'date',
 			options: {
-				dateFormat: 'YYYY',
+				dateFormat: 'DD-MM-YYYY',
 			},
 		},
 		{

@@ -18,7 +18,9 @@ const LandingPage = () => {
 	if (isLoaded) {
 		return (
 			<div>
-				<h3 style={{ color: 'red', textAlign: 'center', marginTop: '250px' }}>Made By {isLoaded ? authorData[0].name : null} 🙂</h3>
+				<h3 style={{ color: 'red', textAlign: 'center', marginTop: '250px' }}>
+					Made By {isLoaded ? authorData[0].name : null} 🙂
+				</h3>
 			</div>
 		);
 	} else return null;

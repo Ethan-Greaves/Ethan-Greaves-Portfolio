@@ -1,5 +1,4 @@
 import Particles from 'react-particles-js';
-import './stars.scss';
 
 const Stars = () => {
 	return (
@@ -9,7 +8,7 @@ const Stars = () => {
 			params={{
 				particles: {
 					number: {
-						value: 100,
+						value: 30,
 						density: {
 							enable: true,
 							value_area: 300,
@@ -17,7 +16,7 @@ const Stars = () => {
 					},
 					color: { value: '#ffffff' },
 					size: {
-						value: 1,
+						value: 1.2,
 						random: true,
 						anim: {
 							enable: true,
@@ -35,8 +34,12 @@ const Stars = () => {
 					},
 					move: {
 						enable: true,
-						speed: 0.6,
-						random: true,
+						speed: 0.4,
+						random: false,
+						direction: 'left',
+						straight: false,
+						out_mode: 'out',
+						bounce: false,
 					},
 				},
 			}}

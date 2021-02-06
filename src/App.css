@@ -1,4 +1,61 @@
 body,
 html {
-	background-image: url('https://raw.githubusercontent.com/Ethan-Greaves/Portfolio/master/Pictures/DeepSpace.jpg?token=AKPOE2JHWGP7FPHFK437GF3AEVXA6');
+	background-image: linear-gradient(
+		to right,
+		#000000,
+		#050505,
+		#0a090a,
+		#0e0d0e,
+		#111112,
+		#151516,
+		#191919,
+		#1c1c1d,
+		#212223,
+		#272829,
+		#2c2e2e,
+		#323434
+	);
+
+	background-repeat: no-repeat;
+	background-position: fixed;
+}
+
+html {
+	height: 100%;
+}
+
+.fade-exit {
+	opacity: 1;
+}
+
+.fade-exit-active {
+	opacity: 0;
+	transition: opacity 0ms;
+}
+
+.fade-enter {
+	opacity: 0;
+}
+
+.fade-enter-active {
+	opacity: 1;
+	transition: opacity 1500ms;
+}
+
+.alert-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+.alert-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 300ms, transform 1500ms;
+}
+.alert-exit {
+	opacity: 1;
+}
+.alert-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 0ms, transform 0ms;
 }

@@ -30,7 +30,7 @@ html {
 
 .fade-exit-active {
 	opacity: 0;
-	transition: opacity 0ms;
+	transition: opacity 1000ms;
 }
 
 .fade-enter {
@@ -39,7 +39,16 @@ html {
 
 .fade-enter-active {
 	opacity: 1;
-	transition: opacity 1500ms;
+	transition: opacity 1000ms;
+}
+
+.fade-appear {
+	opacity: 0;
+}
+
+.fade-appear-active {
+	opacity: 1;
+	transition: opacity 750ms;
 }
 
 .alert-enter {

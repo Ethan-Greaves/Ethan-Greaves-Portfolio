@@ -8,15 +8,15 @@ const Stars = () => {
 			params={{
 				particles: {
 					number: {
-						value: 30,
+						value: 100,
 						density: {
 							enable: true,
-							value_area: 300,
+							value_area: 500,
 						},
 					},
-					color: { value: '#ffffff' },
+					color: { value: '#FFFFFF' },
 					size: {
-						value: 1.2,
+						value: 1.3,
 						random: true,
 						anim: {
 							enable: true,
@@ -37,7 +37,7 @@ const Stars = () => {
 						speed: 0.4,
 						random: false,
 						direction: 'left',
-						straight: false,
+						straight: true,
 						out_mode: 'out',
 						bounce: false,
 					},

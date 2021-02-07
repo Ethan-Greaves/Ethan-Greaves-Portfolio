@@ -1,0 +1,45 @@
+$base-colour: #7061f5;
+
+@mixin landing-page-btn($bgColour, $textColour, $size) {
+	color: $textColour !important;
+	text-transform: uppercase !important;
+	text-decoration: none !important;
+	background: $bgColour !important;
+	padding: $size !important;
+	border-radius: 5px !important;
+	display: inline-block !important;
+	border: none !important;
+	transition: all 0.4s ease 0s;
+	font-weight: bold !important;
+	font-size: 12px !important;
+	-webkit-transform: translate3d(0, 0, 0);
+
+	&:hover {
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+}
+
+.header {
+	color: white;
+	width: 75%;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#stand-out {
+	color: $base-colour;
+	display: inline-flex;
+}
+
+#main-btn {
+	@include landing-page-btn($base-colour, black, 20px);
+}
+
+#side-left-btn,
+#side-right-btn {
+	@include landing-page-btn(black, $base-colour, 15px);
+}

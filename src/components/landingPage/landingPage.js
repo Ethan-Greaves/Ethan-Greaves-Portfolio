@@ -1,65 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import sanityClient from '../../client';
 import './landingPage.scss';
 import '../../commonStyles/positions.scss';
 import Container from '@material-ui/core/Container';
-import { Avatar, Box, Button, Grid, Typography } from '@material-ui/core';
+import { Box, Button, Grid, Typography } from '@material-ui/core';
 import { spacing } from '@material-ui/system';
 import { Link } from 'react-router-dom';
+import useSanityFetchState from '../../hooks/useSanityFetchState';
+import ExternalLink from '../../Wrappers/externalLink';
 
 const LandingPage = () => {
-	const [authorData, setAuthor] = useState([]);
-	const [isLoaded, setIsLoaded] = useState(false);
+	const [authorData, isLoaded] = useSanityFetchState(`*[_type == "author"]{
+		name,
+		welcome,
+		bio,
+		"cv": cv.asset->url,
+		email,
+		"image": image.asset->url,
+	}`);
 
-	const buttonsInfo = [
-		{ text: 'Download CV', style: 'side-left-btn' },
-		{ text: 'Take a look', style: 'main-btn' },
-		{ text: 'Get in touch', style: 'side-right-btn' },
-	];
-
-	useEffect(() => {
-		sanityClient
-			.fetch(
-				`*[_type == "author"]{
-				name,
-				welcome,
-				bio,
-				"cv": cv.assest->url,
-				email,
-				"image": image.asset->url,
-			}`
-			)
-			.then((response) => setAuthor(response))
-			.then(() => setIsLoaded(true))
-			.catch((e) => console.error(e));
-	}, [authorData]);
+	//TODO Make this custom hook or find more efficient way
+	const checkIfButtonRedirects = (object) => {
+		if (!object.redirect) {
+			return (
+				<Link to={object.link}>
+					<Button variant='contained' id={object.style}>
+						{object.text}
+					</Button>
+				</Link>
+			);
+		} else {
+			return (
+				<ExternalLink to={object.link} newTab={true}>
+					<Button variant='contained' id={object.style}>
+						{object.text}
+					</Button>
+				</ExternalLink>
+			);
+		}
+	};
 
 	if (isLoaded) {
-		const author = authorData[0];
+		// Todo make this props or state
+		const buttonsInfo = [
+			{ text: 'Download CV', style: 'side-left-btn', link: authorData[0].cv, redirect: true },
+			{ text: 'Take a look', style: 'main-btn', link: '/projects', redirect: false },
+			{
+				text: 'Get in touch',
+				style: 'side-right-btn',
+				link: authorData[0].email,
+				redirect: true,
+			},
+		];
 		return (
 			<Container>
 				<div className='header'>
-					{/* <Avatar alt={author.name} src={author.image} style={{width: '100px', height: '100px'}} /> */}
 					<Typography variant='h3' align='center'>
-						Hi, I'm <span id='stand-out'>{author.name}.</span> Nice to meet you!
+						Hi, I'm <span id='stand-out'>{authorData[0].name}.</span> Nice to meet you!
 					</Typography>
 					<Box pt={4} />
 					<Typography align='center' variant='body1'>
-						{author.bio}
+						{authorData[0].bio}
 					</Typography>
 					<Box pt={7} />
 
 					<Grid container direction='row' alignItems='center' justify='center' spacing={10}>
 						{buttonsInfo.map((button, i) => {
-							return (
-								<Grid item>
-									<Link to='/projects'>
-										<Button variant='contained' id={button.style}>
-											{button.text}
-										</Button>
-									</Link>
-								</Grid>
-							);
+							return <Grid item>{checkIfButtonRedirects(button)}</Grid>;
 						})}
 					</Grid>
 				</div>

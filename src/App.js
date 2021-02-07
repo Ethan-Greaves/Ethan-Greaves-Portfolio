@@ -11,6 +11,11 @@ const theme = createMuiTheme({
 	typography: {
 		fontFamily: ['Montserrat', 'sans-serif'].join(','),
 	},
+	palette: {
+		primary: {
+			main: '#ffffff',
+		},
+	},
 });
 
 function App() {
@@ -19,7 +24,7 @@ function App() {
 			<div style={{ position: 'fixed' }}>
 				<ParticleStars />
 			</div>
-			
+
 			<div style={{ position: 'relative', zIndex: 2 }}>
 				<ThemeProvider theme={theme}>
 					<Navbar />

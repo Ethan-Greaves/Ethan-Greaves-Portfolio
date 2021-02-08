@@ -33,8 +33,6 @@ const settings = {
 					inner: '100%',
 				},
 
-				title: 'hello',
-
 				list: defaultCSSColours
 					.map((colour) => {
 						return colorToHex(colour);

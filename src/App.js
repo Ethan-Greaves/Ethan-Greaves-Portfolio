@@ -12,14 +12,12 @@ import './App.css';
 //const theme = createMuiTheme({});
 
 function App() {
-	const [themeColour, isLoaded] = useSanityFetchState(`*[_type == "settings"]{
+	const [themeColour, themeColourIsLoaded] = useSanityFetchState(`*[_type == "settings"]{
 		"value": themeColour.value
 	  }	  
 	  `);
 
-	console.log(isLoaded);
-
-	if (isLoaded) {
+	if (themeColourIsLoaded) {
 		return (
 			<div>
 				<div style={{ position: 'fixed' }}>

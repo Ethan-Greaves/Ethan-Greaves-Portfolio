@@ -6,6 +6,8 @@ import { spacing } from '@material-ui/system';
 import { Link } from 'react-router-dom';
 import useSanityFetchState from '../../hooks/useSanityFetchState';
 import ExternalLink from '../../Wrappers/externalLink';
+import { useTheme } from '@material-ui/core/styles';
+import { useState } from 'react';
 
 const LandingPage = () => {
 	const [authorData, isLoaded] = useSanityFetchState(`*[_type == "author"]{
@@ -16,6 +18,8 @@ const LandingPage = () => {
 		email,
 		"image": image.asset->url,
 	}`);
+
+	const [themeColour, setThemeColour] = useState(useTheme().palette.primary.main);
 
 	//TODO Make this custom hook or find more efficient way
 	const checkIfButtonRedirects = (object) => {
@@ -54,7 +58,11 @@ const LandingPage = () => {
 			<Container>
 				<div className='header'>
 					<Typography variant='h3' align='center'>
-						Hi, I'm <span id='stand-out'>{authorData[0].name}.</span> Nice to meet you!
+						Hi, I'm{' '}
+						<span style={{ color: `${themeColour}`}} id='stand-out'>
+							{authorData[0].name}.
+						</span>{' '}
+						Nice to meet you!
 					</Typography>
 					<Box pt={4} />
 					<Typography align='center' variant='body1'>

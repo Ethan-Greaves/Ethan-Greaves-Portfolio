@@ -6,18 +6,18 @@ import Projects from './components/projects/projects';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useSanityFetchState from './hooks/useSanityFetchState';
-import sanityClient from './client';
 import './App.css';
 
 //const theme = createMuiTheme({});
 
 function App() {
-	const [themeColour, themeColourIsLoaded] = useSanityFetchState(`*[_type == "settings"]{
-		"value": themeColour.value
+	const [theme, themeIsLoaded] = useSanityFetchState(`*[_type == "settings"]{
+		"primaryColour": primaryColour.value,
+		"secondaryColour": secondaryColour.value,
 	  }	  
 	  `);
 
-	if (themeColourIsLoaded) {
+	if (themeIsLoaded) {
 		return (
 			<div>
 				<div style={{ position: 'fixed' }}>
@@ -28,11 +28,16 @@ function App() {
 					<ThemeProvider
 						theme={createMuiTheme({
 							typography: {
-								fontFamily: ['Montserrat', 'sans-serif'].join(','),
+								//fontFamily: ['Montserrat', 'sans-serif'].join(','),
+								fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+								fontSize: 16,
 							},
 							palette: {
 								primary: {
-									main: themeColour[0].value,
+									main: theme[0].primaryColour,
+								},
+								secondary: {
+									main: theme[0].secondaryColour,
 								},
 							},
 						})}

@@ -27,6 +27,12 @@ const author = {
 			},
 		},
 		{
+			name: 'role',
+			title: 'Role/Occupation',
+			description: 'What would you desribe yourself as?',
+			type: 'string',
+		},
+		{
 			name: 'welcome',
 			title: 'Welcome message',
 			type: 'string',

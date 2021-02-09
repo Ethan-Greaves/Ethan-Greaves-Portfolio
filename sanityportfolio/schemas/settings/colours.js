@@ -149,6 +149,6 @@ const defaultCSSColours = [
 	'YellowGreen',
 ];
 
-const customColours = [{ title: 'SpaceBlue', value: '#7061f5' }];
+const customColours = [{ title: 'SpaceBlue', value: '#7061f5' }, {title: 'HotOrange', value: '#FC6E4D'}];
 
 export { defaultCSSColours, customColours };

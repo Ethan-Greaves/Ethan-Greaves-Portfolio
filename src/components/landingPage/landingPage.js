@@ -9,16 +9,17 @@ import ExternalLink from '../../Wrappers/externalLink';
 import { useTheme } from '@material-ui/core/styles';
 import { useState } from 'react';
 import landingPageStyles from './landingPageStyles';
+import './landingPageAnimations.scss';
 //#endregion
 
 const LandingPage = () => {
 	//#region INITILISATION
 	//#region STATE
-	const [themePrimaryColour] = useState(useTheme().palette.primary.main);
+	const [themePalette] = useState(useTheme().palette);
 	const [authorData, authorDataIsLoaded] = useSanityFetchState(`*[_type == "author"]{
 		name,
 		welcome,
-		bio,
+		role,
 		"cv": cv.asset->url,
 		email,
 		"image": image.asset->url,
@@ -27,10 +28,10 @@ const LandingPage = () => {
 
 	//#region STYLES
 	const styles = landingPageStyles({
-		themePrimaryColour,
+		themePrimaryColour: themePalette.primary.main,
 		btnBackgroundColour: 'black',
-		btnSize: { main: '20px', side: '12px' },
-		themeSecondaryColour: 'white',
+		btnSize: { main: '15px', side: '12px' },
+		themeSecondaryColour: themePalette.secondary.main,
 	});
 	//#endregion
 	//#endregion
@@ -61,7 +62,7 @@ const LandingPage = () => {
 		// Todo make this props or state
 		const buttonsInfo = [
 			{ text: 'Download CV', link: authorData[0].cv, redirect: true },
-			{ text: 'Take a look', link: '/projects', redirect: false },
+			{ text: 'Projects', link: '/projects', redirect: false },
 			{
 				text: 'Get in touch',
 				link: authorData[0].email,
@@ -72,17 +73,19 @@ const LandingPage = () => {
 		return (
 			<Container>
 				<div className={`${styles.header}`}>
-					<Typography variant='h3' align='center'>
-						Hi, I'm <span className={`${styles.standOut}`}>{authorData[0].name}.</span> Nice to meet you!
+					<Typography variant='h2' align='center'>
+						<span className={`${styles.standOut}`}>{authorData[0].name}</span>
+					</Typography>
+
+					<Box pt={0} />
+
+					<Typography align='center' variant='h5'>
+						<div className='subHeading'>
+							<span>{authorData[0].role}</span>
+						</div>
 					</Typography>
 
 					<Box pt={4} />
-
-					<Typography align='center' variant='body1'>
-						{authorData[0].bio}
-					</Typography>
-
-					<Box pt={7} />
 
 					<Grid container direction='row' alignItems='center' justify='center' spacing={10}>
 						{buttonsInfo.map((button) => {

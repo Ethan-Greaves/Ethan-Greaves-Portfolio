@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 function landingPageBtn(btnColour, btnBackgroundColour, btnSize) {
+	const scale = 1.1;
 	return {
 		color: btnColour,
 		textTransform: 'uppercase',
@@ -10,35 +11,37 @@ function landingPageBtn(btnColour, btnBackgroundColour, btnSize) {
 		borderRadius: '5px',
 		display: 'inline-block',
 		border: 'none',
-		transition: 'all 0.4s ease 0s',
+		transition: 'all 0.5s ease 0s',
 		fontWeight: 'bold',
 		fontSize: '12px',
 
 		'&:hover': {
 			background: btnBackgroundColour,
-			WebkitTransform: 'scale(1.1)',
-			msTransform: 'scale(1.1)',
-			transform: 'scale(1.1)',
+			WebkitTransform: `scale(${scale})`,
+			msTransform: `scale(${scale})`,
+			transform: `scale(${scale})`,
 		},
 	};
 }
 
 const useStyles = makeStyles({
-	mainBtn: (props) => landingPageBtn(props.themePrimaryColour, props.btnBackgroundColour, props.btnSize.main),
-	sideBtn: (props) => landingPageBtn(props.btnBackgroundColour, props.themePrimaryColour, props.btnSize.side),
+	sideBtn: (props) => landingPageBtn(props.themePrimaryColour, 'none', null),
+	mainBtn: (props) => landingPageBtn(props.btnBackgroundColour, props.themePrimaryColour, props.btnSize.main),
 
 	header: (props) => ({
 		color: props.themeSecondaryColour,
-		width: '75%',
+		width: '100%',
 		position: 'fixed',
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
+		textTransform: 'uppercase',
 	}),
 
 	standOut: (props) => ({
 		display: 'inline-flex',
 		color: props.themePrimaryColour,
+		fontWeight: 600,
 	}),
 });
 

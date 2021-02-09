@@ -35,6 +35,7 @@ const projectSchema = {
 			description: 'List the technologies, software and languages used on this project',
 			type: 'array',
 			of: [{ type: 'string' }],
+			validation: (Rule) => Rule.unique(),
 		},
 		{
 			name: 'coverImage',
@@ -85,6 +86,7 @@ const projectSchema = {
 			description: 'List the main parts of the project.',
 			type: 'array',
 			of: [{ type: 'string' }],
+			validation: (Rule) => [Rule.unique(), Rule.max(6)],
 		},
 		{
 			name: 'reflection',

@@ -1,5 +1,5 @@
 //#region IMPORTS
-import '../../commonStyles/positions.scss';
+// import '../../commonStyles/positions.scss';
 import Container from '@material-ui/core/Container';
 import { Box, Button, Grid, Typography } from '@material-ui/core';
 import { spacing } from '@material-ui/system';
@@ -7,26 +7,24 @@ import { Link } from 'react-router-dom';
 import useSanityFetchState from '../../hooks/useSanityFetchState';
 import ExternalLink from '../../Wrappers/externalLink';
 import { useTheme } from '@material-ui/core/styles';
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import landingPageStyles from './landingPageStyles';
 import './landingPageAnimations.scss';
+import buttonsInfo from './buttonInfo';
 //#endregion
 
 const LandingPage = () => {
 	//#region INITILISATION
 	//#region STATE
 	const [themePalette] = useState(useTheme().palette);
+	const [currentDisplayedRole, setCurrentDisplayedRole] = useState('Software Engineer');
 	const [authorData, authorDataIsLoaded] = useSanityFetchState(`*[_type == "author"]{
 		name,
 		roles,
 		"cv": cv.asset->url,
 		email,
 	}`);
-	const [currentDisplayedRole, setCurrentDisplayedRole] = useState('Software Engineer');
 	//#endregion
-
-	//console.log(authorData);
-
 	//#region STYLES
 	const styles = landingPageStyles({
 		themePrimaryColour: themePalette.primary.main,
@@ -38,8 +36,6 @@ const LandingPage = () => {
 	//#endregion
 
 	//#region CUSTOM METHODS
-
-	//TODO Make this custom hook or find more efficient way
 	const checkIfButtonRedirects = (object) => {
 		if (!object.redirect) {
 			return (
@@ -58,40 +54,17 @@ const LandingPage = () => {
 		}
 	};
 
-	useEffect(() => {
-		const startTime = Date.now();
-		const timer = 15000;
-		const interval = setInterval(() => {
-			let elapsedTime = Date.now() - startTime;
-			console.log(elapsedTime);
-			if (elapsedTime >= timer && authorDataIsLoaded) {
-				setCurrentDisplayedRole(
-					authorData[0].roles.filter((role) => role !== currentDisplayedRole)[
-						Math.floor(Math.random() * authorData[0].roles.length)
-					]
-				);
-
-				elapsedTime = startTime;
-			}
-		}, timer / 10000);
-
-		return () => clearInterval(interval);
-	}, [authorData, authorDataIsLoaded, currentDisplayedRole]);
-
+	const setRandomRole = () => {
+		setCurrentDisplayedRole(
+			//*Filter to return an array without the previous role and randomly choose from that
+			authorData[0].roles.filter((role) => role !== currentDisplayedRole)[
+				Math.floor(Math.random() * authorData[0].roles.length)
+			]
+		);
+	};
 	//#endregion
 
 	if (authorDataIsLoaded) {
-		// Todo make this props or state
-		const buttonsInfo = [
-			{ text: 'Download CV', link: authorData[0].cv, redirect: true },
-			{ text: 'Projects', link: '/projects', redirect: false },
-			{
-				text: 'Get in touch',
-				link: authorData[0].email,
-				redirect: true,
-			},
-		];
-
 		return (
 			<Container>
 				<div className={`${styles.header}`}>
@@ -99,22 +72,20 @@ const LandingPage = () => {
 						<span className={`${styles.standOut}`}>{authorData[0].name}</span>
 					</Typography>
 
-					<Box pt={0} />
-
 					<Typography align='center' variant='h5'>
-						<div className='subHeading'>
-							<span>
-								{currentDisplayedRole
-									? currentDisplayedRole
-									: authorData[0].roles[Math.floor(Math.random() * authorData[0].roles.length)]}
-							</span>
+						<div
+							className='subHeading'
+							onAnimationStart={setRandomRole}
+							onAnimationIteration={setRandomRole}
+						>
+							<span>{currentDisplayedRole ? currentDisplayedRole : setRandomRole()}</span>
 						</div>
 					</Typography>
 
 					<Box pt={4} />
 
 					<Grid container direction='row' alignItems='center' justify='center' spacing={10}>
-						{buttonsInfo.map((button) => {
+						{buttonsInfo(authorData[0].cv, authorData[0].email).map((button) => {
 							return <Grid item>{checkIfButtonRedirects(button)}</Grid>;
 						})}
 					</Grid>

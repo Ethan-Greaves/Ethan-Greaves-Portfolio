@@ -1,21 +1,29 @@
-$caret-colour: rgba($color: #666666, $alpha: 0.8);;
+$caret-colour: rgba(
+	$color: #666666,
+	$alpha: 0.8,
+);
 
 .subHeading {
 	overflow: hidden;
 	white-space: nowrap;
-	margin: 0 auto; 
+	margin: 0 auto;
 	letter-spacing: 0.15em;
-	animation: typing 7.5s steps(75, end), blink-caret 1.1s step-end infinite;
+	animation: typing 7.5s steps(100, end) infinite, blink-caret 0.8s step-end infinite;
+	animation-direction: alternate;
 	border-right: 0.05em solid;
 	max-width: fit-content;
 }
 
 /* The typing effect */
 @keyframes typing {
-	from {
-		width: 0;
+	0%{
+		width: 0%;
 	}
-	to {
+
+	15%{
+		width: 0%;
+	}
+	100% {
 		width: 100%;
 	}
 }

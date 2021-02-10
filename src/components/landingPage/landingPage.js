@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import useSanityFetchState from '../../hooks/useSanityFetchState';
 import ExternalLink from '../../Wrappers/externalLink';
 import { useTheme } from '@material-ui/core/styles';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import landingPageStyles from './landingPageStyles';
 import './landingPageAnimations.scss';
 //#endregion
@@ -18,25 +18,28 @@ const LandingPage = () => {
 	const [themePalette] = useState(useTheme().palette);
 	const [authorData, authorDataIsLoaded] = useSanityFetchState(`*[_type == "author"]{
 		name,
-		welcome,
-		role,
+		roles,
 		"cv": cv.asset->url,
 		email,
-		"image": image.asset->url,
 	}`);
+	const [currentDisplayedRole, setCurrentDisplayedRole] = useState('Software Engineer');
+
 	//#endregion
+
+	//console.log(authorData);
 
 	//#region STYLES
 	const styles = landingPageStyles({
 		themePrimaryColour: themePalette.primary.main,
 		btnBackgroundColour: 'black',
-		btnSize: { main: '15px', side: '12px' },
+		btnSize: { main: '14px', side: '12px' },
 		themeSecondaryColour: themePalette.secondary.main,
 	});
 	//#endregion
 	//#endregion
 
 	//#region CUSTOM METHODS
+
 	//TODO Make this custom hook or find more efficient way
 	const checkIfButtonRedirects = (object) => {
 		if (!object.redirect) {
@@ -55,6 +58,26 @@ const LandingPage = () => {
 			);
 		}
 	};
+
+	useEffect(() => {
+		const startTime = Date.now();
+		const timer = 15000;
+
+		const interval = setInterval(() => {
+			let elapsedTime = Date.now() - startTime;
+			if (elapsedTime > (timer - 50) && authorDataIsLoaded) {
+				setCurrentDisplayedRole(
+					authorData[0].roles.filter((role) => role !== currentDisplayedRole)[
+						Math.floor(Math.random() * authorData[0].roles.length)
+					]
+				);
+
+				elapsedTime = startTime;
+			}
+		}, timer / 200);
+
+		return () => clearInterval(interval);
+	}, [authorData, authorDataIsLoaded, currentDisplayedRole]);
 
 	//#endregion
 
@@ -81,7 +104,7 @@ const LandingPage = () => {
 
 					<Typography align='center' variant='h5'>
 						<div className='subHeading'>
-							<span>{authorData[0].role}</span>
+							<span>{currentDisplayedRole}</span>
 						</div>
 					</Typography>
 

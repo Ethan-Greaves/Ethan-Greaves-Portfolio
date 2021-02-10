@@ -23,7 +23,6 @@ const LandingPage = () => {
 		email,
 	}`);
 	const [currentDisplayedRole, setCurrentDisplayedRole] = useState('Software Engineer');
-
 	//#endregion
 
 	//console.log(authorData);
@@ -62,10 +61,10 @@ const LandingPage = () => {
 	useEffect(() => {
 		const startTime = Date.now();
 		const timer = 15000;
-
 		const interval = setInterval(() => {
 			let elapsedTime = Date.now() - startTime;
-			if (elapsedTime > (timer - 50) && authorDataIsLoaded) {
+			console.log(elapsedTime);
+			if (elapsedTime >= timer && authorDataIsLoaded) {
 				setCurrentDisplayedRole(
 					authorData[0].roles.filter((role) => role !== currentDisplayedRole)[
 						Math.floor(Math.random() * authorData[0].roles.length)
@@ -74,7 +73,7 @@ const LandingPage = () => {
 
 				elapsedTime = startTime;
 			}
-		}, timer / 200);
+		}, timer / 10000);
 
 		return () => clearInterval(interval);
 	}, [authorData, authorDataIsLoaded, currentDisplayedRole]);
@@ -104,7 +103,11 @@ const LandingPage = () => {
 
 					<Typography align='center' variant='h5'>
 						<div className='subHeading'>
-							<span>{currentDisplayedRole}</span>
+							<span>
+								{currentDisplayedRole
+									? currentDisplayedRole
+									: authorData[0].roles[Math.floor(Math.random() * authorData[0].roles.length)]}
+							</span>
 						</div>
 					</Typography>
 

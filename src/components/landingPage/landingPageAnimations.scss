@@ -1,39 +1,36 @@
+$percentage: 3%;
 $caret-colour: rgba(
 	$color: #666666,
 	$alpha: 0.9,
 );
-
-$percentage: 3%;
 
 .subHeading {
 	overflow: hidden;
 	white-space: nowrap;
 	margin: 0 auto;
 	letter-spacing: 0.15em;
-	animation: typing 15s infinite steps(90, end);
+	animation: typing 15s infinite steps(35, end);
 	border-right: 0.05em solid;
 	max-width: fit-content;
 }
 
 @keyframes typing {
 	0%,
-	18%,
+	10%,
 	100% {
 		width: 0%;
 	}
 
-	60% {
+	50%, 90% {
 		width: 100%;
 	}
 
 	//* caret animation
 	@for $i from 0 to 100 {
-		@if $i % 2 == 0 {
-			#{$i * $percentage} {
+		#{$i * $percentage} {
+			@if $i % 2 == 0 {
 				border-color: transparent;
-			}
-		} @else {
-			#{($i * $percentage)} {
+			} @else {
 				border-color: $caret-colour;
 			}
 		}

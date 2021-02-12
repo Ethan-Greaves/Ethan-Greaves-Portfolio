@@ -32,6 +32,7 @@ const author = {
 			description: 'What would you describe yourself as?',
 			type: 'array',
 			of: [{ type: 'string' }],
+			validation: (Rule) => [Rule.unique(), Rule.max(15)],
 		},
 		{
 			name: 'bio',

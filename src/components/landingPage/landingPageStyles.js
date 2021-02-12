@@ -1,10 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 function landingPageBtn(btnColour, btnBackgroundColour, btnSize) {
-	const scale = 1.1;
 	return {
 		color: btnColour,
-		textTransform: 'uppercase',
 		textDecoration: 'none',
 		background: btnBackgroundColour,
 		padding: btnSize,
@@ -15,11 +13,12 @@ function landingPageBtn(btnColour, btnBackgroundColour, btnSize) {
 		fontWeight: 'bold',
 		fontSize: '0.76rem',
 
+		verticalAlign: 'middle',
+		webkitTransform: 'perspective(1px) translateZ(0)',
+		transform: 'perspective(1px) translateZ(0)',
+
 		'&:hover': {
 			background: btnBackgroundColour,
-			WebkitTransform: `scale(${scale})`,
-			msTransform: `scale(${scale})`,
-			transform: `scale(${scale})`,
 		},
 	};
 }
@@ -30,16 +29,14 @@ const useStyles = makeStyles({
 
 	header: (props) => ({
 		color: props.themeSecondaryColour,
-		width: '100%',
-		position: 'fixed',
+		textTransform: 'uppercase',
+		position: 'absolute',
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
-		textTransform: 'uppercase',
 	}),
 
 	standOut: (props) => ({
-		display: 'inline-flex',
 		color: props.themePrimaryColour,
 		fontWeight: 600,
 	}),

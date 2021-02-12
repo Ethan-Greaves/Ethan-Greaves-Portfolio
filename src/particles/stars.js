@@ -3,8 +3,6 @@ import Particles from 'react-particles-js';
 const Stars = () => {
 	return (
 		<Particles
-			height='100vw'
-			width='100vw'
 			params={{
 				particles: {
 					number: {
@@ -34,9 +32,9 @@ const Stars = () => {
 					},
 					move: {
 						enable: true,
-						speed: 0.6,
+						speed: 2,
 						random: false,
-						direction: 'left',
+						direction: 'right',
 						straight: true,
 						out_mode: 'out',
 						bounce: false,

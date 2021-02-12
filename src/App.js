@@ -8,54 +8,71 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useSanityFetchState from './hooks/useSanityFetchState';
 import './App.css';
 
-//const theme = createMuiTheme({});
-
 function App() {
+	const [projectData, projectDataIsLoaded] = useSanityFetchState(`*[_type == "project"]{
+			title,
+			blurb,
+			"coverImage": coverImage.asset->url,
+			githubLink,
+		  }
+		  `);
+
 	const [theme, themeIsLoaded] = useSanityFetchState(`*[_type == "settings"]{
 		"primaryColour": primaryColour.value,
 		"secondaryColour": secondaryColour.value,
 	  }	  
 	  `);
 
-	if (themeIsLoaded) {
+	const [landingPageData, authorDataIsLoaded] = useSanityFetchState(`*[_type == "author"]{
+		name,
+		roles,
+		"cv": cv.asset->url,
+		email,
+	}`);
+
+	if (themeIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
 		return (
 			<div>
-				<div style={{ position: 'fixed' }}>
+				<ThemeProvider
+					theme={createMuiTheme({
+						typography: {
+							fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+							fontSize: 16,
+						},
+						palette: {
+							primary: {
+								main: theme[0].primaryColour,
+							},
+							secondary: {
+								main: theme[0].secondaryColour,
+							},
+						},
+					})}
+				>
+					<Navbar />
+					<Route
+						render={({ location }) => (
+							<TransitionGroup appear={true}>
+								<CSSTransition key={location.key} classNames='move-left' timeout={1800}>
+									<Switch location={location}>
+										<Route
+											exact
+											path='/'
+											render={() => <LandingPage authorData={landingPageData} />}
+										/>
+										<Route
+											exact
+											path='/projects'
+											render={() => <Projects projectData={projectData} />}
+										/>
+									</Switch>
+								</CSSTransition>
+							</TransitionGroup>
+						)}
+					/>
+				</ThemeProvider>
+				<div id='particles-js'>
 					<ParticleStars />
-				</div>
-
-				<div style={{ position: 'relative', zIndex: 2 }}>
-					<ThemeProvider
-						theme={createMuiTheme({
-							typography: {
-								//fontFamily: ['Montserrat', 'sans-serif'].join(','),
-								fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-								fontSize: 16,
-							},
-							palette: {
-								primary: {
-									main: theme[0].primaryColour,
-								},
-								secondary: {
-									main: theme[0].secondaryColour,
-								},
-							},
-						})}
-					>
-						<Navbar />
-						<Route
-							render={({ location }) => (
-								<TransitionGroup appear={true}>
-									<CSSTransition key={location.key} classNames='fade' timeout={1000}>
-										<Switch location={location}>
-											<Route exact path='/' render={() => <LandingPage />} />
-											<Route exact path='/projects' render={() => <Projects />} />
-										</Switch>
-									</CSSTransition>
-								</TransitionGroup>
-							)}
-						/>
-					</ThemeProvider>
 				</div>
 			</div>
 		);

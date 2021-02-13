@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from './components/landingPage/landingPage';
 import ParticleStars from './particles/stars';
+import AboutPage from './components/aboutPage/aboutPage';
 import Navbar from './components/navbar/navigationBar';
 import Projects from './components/projects/projects';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -64,6 +65,11 @@ function App() {
 											exact
 											path='/projects'
 											render={() => <Projects projectData={projectData} />}
+										/>
+										<Route
+											exact
+											path='/about'
+											render={() => <AboutPage />}
 										/>
 									</Switch>
 								</CSSTransition>

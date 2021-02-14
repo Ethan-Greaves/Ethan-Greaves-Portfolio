@@ -14,7 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../../commonStyles/buttonAnims.scss';
 //#endregion
 
-const LandingPage = ({ authorData }) => {
+const LandingPage = ({ ...authorData }) => {
 	//#region INITILISATION
 	//#region STATE
 	const [themePalette] = useState(useTheme().palette);
@@ -52,8 +52,8 @@ const LandingPage = ({ authorData }) => {
 	const setRandomRole = () => {
 		setCurrentDisplayedRole(
 			//*Filter to return an array without the previous role and randomly choose from it
-			authorData[0].roles.filter((role) => role !== currentDisplayedRole)[
-				Math.floor(Math.random() * authorData[0].roles.length)
+			authorData.roles.filter((role) => role !== currentDisplayedRole)[
+				Math.floor(Math.random() * authorData.roles.length)
 			]
 		);
 	};
@@ -63,7 +63,7 @@ const LandingPage = ({ authorData }) => {
 		<Container>
 			<div className={`${styles.header}`}>
 				<Typography variant='h2' align='center' className={`${styles.standOut}`}>
-					{authorData[0].name}
+					{authorData.name}
 				</Typography>
 
 				<Typography align='center' variant='h5'>
@@ -75,7 +75,7 @@ const LandingPage = ({ authorData }) => {
 				<Box pt={4} />
 
 				<Grid container direction='row-reverse' alignItems='center' justify='center' spacing={8}>
-					{buttonsInfo(authorData[0].cv, authorData[0].email).map((button) => {
+					{buttonsInfo(authorData.cv, authorData.email).map((button) => {
 						return (
 							<Grid key={uuidv4()} item>
 								{checkIfButtonRedirects(button)}

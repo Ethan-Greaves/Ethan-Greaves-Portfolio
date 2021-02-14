@@ -24,11 +24,13 @@ function App() {
 	  }	  
 	  `);
 
-	const [landingPageData, authorDataIsLoaded] = useSanityFetchState(`*[_type == "author"]{
+	const [authorData, authorDataIsLoaded] = useSanityFetchState(`*[_type == "author"]{
 		name,
 		roles,
 		"cv": cv.asset->url,
 		email,
+		"image": image.asset->url,
+		bio,
 	}`);
 
 	if (themeIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
@@ -51,26 +53,19 @@ function App() {
 					})}
 				>
 					<Navbar />
+
 					<Route
 						render={({ location }) => (
 							<TransitionGroup appear={true}>
 								<CSSTransition key={location.key} classNames='move-left' timeout={1800}>
 									<Switch location={location}>
-										<Route
-											exact
-											path='/'
-											render={() => <LandingPage authorData={landingPageData} />}
-										/>
+										<Route exact path='/' render={() => <LandingPage {...authorData[0]} />} />
 										<Route
 											exact
 											path='/projects'
 											render={() => <Projects projectData={projectData} />}
 										/>
-										<Route
-											exact
-											path='/about'
-											render={() => <AboutPage />}
-										/>
+										<Route exact path='/about' render={() => <AboutPage {...authorData[0]} />} />
 									</Switch>
 								</CSSTransition>
 							</TransitionGroup>

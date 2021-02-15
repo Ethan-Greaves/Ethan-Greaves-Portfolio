@@ -2,7 +2,6 @@
 // import '../../commonStyles/positions.scss';
 import Container from '@material-ui/core/Container';
 import { Box, Button, Grid, Typography } from '@material-ui/core';
-import { spacing } from '@material-ui/system';
 import { Link } from 'react-router-dom';
 import ExternalLink from '../../Wrappers/externalLink';
 import { useTheme } from '@material-ui/core/styles';

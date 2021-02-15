@@ -1,35 +1,10 @@
-import { Avatar, Box, Container, Grid, Typography, Tooltip } from '@material-ui/core';
-import Zoom from '@material-ui/core/Zoom';
+import { Avatar, Box, Container, Grid, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import aboutPageStyles from './aboutPageStyles';
+import Skills from '../skills/skills';
 
 const AboutPage = ({ ...authorData }) => {
 	const styles = aboutPageStyles();
-	const useStyles = makeStyles((theme) => ({
-		root: {
-			display: 'flex',
-			'& > *': {
-				margin: theme.spacing(1),
-			},
-		},
-		small: {
-			width: theme.spacing(10),
-			height: theme.spacing(10),
-		},
-
-		medium: {
-			width: theme.spacing(25),
-			height: theme.spacing(25),
-		},
-
-		large: {
-			width: theme.spacing(30),
-			height: theme.spacing(30),
-		},
-	}));
-
-	const classes = useStyles();
 
 	return (
 		<div>
@@ -46,33 +21,13 @@ const AboutPage = ({ ...authorData }) => {
 					</Grid>
 
 					<Grid item xs={12} sm={3} align='center'>
-						<Avatar variant='rounded' src={authorData.image} sizes={'lg'} className={`${classes.medium}`} />
+						<Avatar variant='rounded' src={authorData.image} sizes={'lg'} className={`${styles.medium}`} />
 					</Grid>
 				</Grid>
 
 				<Box pt={6} />
 
-				<Typography variant='h5' color='primary'>
-					{`Skills`.toUpperCase()}
-				</Typography>
-
-				<Box mt={2} />
-
-				<Grid container spacing={3}>
-					{authorData.skills.map((skill) => {
-						return (
-							<Grid item xs={4} sm={2}>
-								<Tooltip title={skill} TransitionComponent={Zoom}>
-									<img
-										className={`${styles.skillImg}`}
-										src={`https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${skill.toLowerCase()}/${skill.toLowerCase()}.png`}
-										alt={skill}
-									/>
-								</Tooltip>
-							</Grid>
-						);
-					})}
-				</Grid>
+				<Skills skills={authorData.skills} />
 			</Container>
 		</div>
 	);

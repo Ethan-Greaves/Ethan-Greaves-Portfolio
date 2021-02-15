@@ -31,6 +31,7 @@ function App() {
 		email,
 		"image": image.asset->url,
 		bio,
+		skills,
 	}`);
 
 	if (themeIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {

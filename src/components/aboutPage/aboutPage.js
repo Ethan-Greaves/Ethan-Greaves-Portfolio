@@ -1,4 +1,5 @@
 import { Avatar, Box, Container, Grid, Typography, Tooltip } from '@material-ui/core';
+import Zoom from '@material-ui/core/Zoom';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import aboutPageStyles from './aboutPageStyles';
@@ -30,8 +31,6 @@ const AboutPage = ({ ...authorData }) => {
 
 	const classes = useStyles();
 
-	const skills = ['HTML', 'CSS', 'Sass', 'JavaScript', 'Unity', 'Csharp', 'Bootstrap', 'React', 'NodeJS', 'Git'];
-
 	return (
 		<div>
 			<Container maxWidth='md'>
@@ -57,13 +56,13 @@ const AboutPage = ({ ...authorData }) => {
 					{`Skills`.toUpperCase()}
 				</Typography>
 
-				<Box mt={3} />
+				<Box mt={2} />
 
-				<Grid container direction='rows' spacing={3}>
-					{skills.map((skill) => {
+				<Grid container spacing={3}>
+					{authorData.skills.map((skill) => {
 						return (
-							<Grid item xs={2}>
-								<Tooltip title={skill}>
+							<Grid item xs={4} sm={2}>
+								<Tooltip title={skill} TransitionComponent={Zoom}>
 									<img
 										className={`${styles.skillImg}`}
 										src={`https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${skill.toLowerCase()}/${skill.toLowerCase()}.png`}

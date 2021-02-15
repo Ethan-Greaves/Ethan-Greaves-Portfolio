@@ -5,7 +5,7 @@ const useStyles = makeStyles({
 		height: 80,
 		width: 'auto',
         transition: '0.2s',
-        borderRadius: '10px',
+        borderRadius: '5px',
 		'&:hover': {
 			transform: 'scale(1.1)',
 		},

@@ -10,7 +10,7 @@ const ProjectCard = ({ project }) => {
 	});
 	return (
 		<div>
-			<Typography variant='body2' color='primary' className={`${styles.title}`} gutterBottom={true}>
+			<Typography variant='body2' color='secondary' className={`${styles.title}`} gutterBottom={true}>
 				{`${project.title}`.toUpperCase()}
 			</Typography>
 

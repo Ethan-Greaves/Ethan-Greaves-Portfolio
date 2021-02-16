@@ -75,17 +75,18 @@ function App() {
 						)}
 					/> */}
 
-					{/* <Container maxWidth='md'> */}
 					<LandingPage {...authorData[0]} />
-					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.5)' }}>
+					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
 						<Skills skills={authorData[0].skills} />
 					</div>
-					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }}>
+					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
 						<AboutPage {...authorData[0]} />
 					</div>
-					<Projects projectData={projectData} />
-					{/* </Container> */}
+					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
+						<Projects projectData={projectData} />
+					</div>
 				</ThemeProvider>
+				
 				<div id='particles-js'>
 					<ParticleStars />
 				</div>

@@ -3,6 +3,7 @@ import Zoom from '@material-ui/core/Zoom';
 import { Tooltip, Grid, Box, Typography, useTheme, Container } from '@material-ui/core';
 import skillsStyles from './skillsStyles';
 import generalStyles from '../../commonStyles/generalStyles';
+import VerticallyPaddedContainer from '../../wrappers/verticallyPaddedContainer';
 
 const Skills = ({ skills }) => {
 	const styles = skillsStyles({
@@ -12,9 +13,7 @@ const Skills = ({ skills }) => {
 	const primaryColour = useTheme().palette.primary.main;
 
 	return (
-		<Container maxWidth='md'>
-			<Box pt={4} />
-
+		<VerticallyPaddedContainer maxWidth='md'>
 			<div className={`${styles.section}`}>
 				<Typography
 					variant='h5'
@@ -42,10 +41,8 @@ const Skills = ({ skills }) => {
 						);
 					})}
 				</Grid>
-
-				<Box pb={4} />
 			</div>
-		</Container>
+		</VerticallyPaddedContainer>
 	);
 };
 

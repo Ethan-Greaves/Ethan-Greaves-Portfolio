@@ -3,27 +3,26 @@ import { Box, Container, Typography, useTheme } from '@material-ui/core';
 import React, { useState } from 'react';
 import ProjectCard from '../projectCard/projectCard';
 import Grid from '@material-ui/core/Grid';
-
+import generalStyles from '../../commonStyles/generalStyles';
+import VerticallyPaddedContainer from '../../wrappers/verticallyPaddedContainer';
 import projectStyles from './projectsStyles';
 //#endregion
 
 const Projects = ({ projectData }) => {
+	const genStyles = generalStyles({ primaryColour: useTheme().palette.primary.main });
 	const [themePrimaryColour] = useState(useTheme().palette.primary.main);
 	const styles = projectStyles({
 		primaryColour: themePrimaryColour,
 	});
 
 	return (
-		<Container maxWidth='md'>
-
-			<Box pt={4} />
-			
+		<VerticallyPaddedContainer maxWidth='md'>
 			<div>
-				<Typography color='primary' variant='h5' gutterBottom={true}>
+				<Typography color='primary' variant='h5' gutterBottom={true} className={`${genStyles.underline}`}>
 					{`Projects`.toUpperCase()}
 				</Typography>
 
-				{/* <Box pt={4}></Box> */}
+				<Box mt={4} />
 
 				<Grid container direction='row' spacing={4} className={`${styles.projects}`}>
 					{projectData.map((project) => {
@@ -35,7 +34,7 @@ const Projects = ({ projectData }) => {
 					})}
 				</Grid>
 			</div>
-		</Container>
+		</VerticallyPaddedContainer>
 	);
 };
 

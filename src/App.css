@@ -16,8 +16,15 @@ body {
 	);
 
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+/** Animations */
+/** ------------------------------------------------- */
 .fade-exit {
 	opacity: 1;
 }
@@ -53,7 +60,10 @@ body {
 	transform: translateX(0px);
 	transition: 1800ms;
 }
+/** ------------------------------------------------- */
 
+/** Particle background */
+/** ------------------------------------------------- */
 #particles-js {
 	/* stay in a constant spot on the page, regardless of scroll */
 	position: fixed;
@@ -68,3 +78,29 @@ body {
 	/* put it behind other content */
 	z-index: -1;
 }
+/** ------------------------------------------------- */
+
+/** Scrollbar */
+/** ------------------------------------------------- */
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #323434;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(to top, rgba(255, 68, 0, 0.4), orangered, rgba(255, 68, 0, 0.4));
+	border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	/* background: #555; */
+}
+/** ------------------------------------------------- */

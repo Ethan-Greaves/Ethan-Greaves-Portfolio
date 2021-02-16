@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	small: {
-		width: theme.spacing(10),
-		height: theme.spacing(10),
+		width: theme.spacing(20),
+		height: theme.spacing(20),
 	},
 
 	medium: {
@@ -20,6 +20,16 @@ const useStyles = makeStyles((theme) => ({
 	large: {
 		width: theme.spacing(30),
 		height: theme.spacing(30),
+	},
+
+	'@media (max-width: 426px) and (orientation: portrait)': {
+		text: {
+			textAlign: 'center',
+		},
+
+		grid: {
+			flexDirection: 'column-reverse',
+		},
 	},
 }));
 

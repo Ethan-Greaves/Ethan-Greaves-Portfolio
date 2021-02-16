@@ -15,8 +15,11 @@ const Projects = ({ projectData }) => {
 
 	return (
 		<Container maxWidth='md'>
+
+			<Box pt={4} />
+			
 			<div>
-				<Typography className={`${styles.header}`} variant='h4' align='center' gutterBottom={true}>
+				<Typography color='primary' variant='h5' gutterBottom={true}>
 					{`Projects`.toUpperCase()}
 				</Typography>
 
@@ -32,7 +35,6 @@ const Projects = ({ projectData }) => {
 					})}
 				</Grid>
 			</div>
-
 		</Container>
 	);
 };

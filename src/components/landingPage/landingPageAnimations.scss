@@ -21,7 +21,8 @@ $caret-colour: rgba(
 		width: 0%;
 	}
 
-	50%, 90% {
+	50%,
+	90% {
 		width: 100%;
 	}
 
@@ -35,4 +36,8 @@ $caret-colour: rgba(
 			}
 		}
 	}
+}
+
+@media (max-width: 426px) and (orientation: portrait){
+
 }

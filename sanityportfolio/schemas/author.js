@@ -43,14 +43,14 @@ const author = {
 			validation: (Rule) => [Rule.unique()],
 			options: {
 				list: [
-					{ value: 'HTML', title: 'HTML' },
-					{ value: 'CSS', title: 'CSS' },
 					{ value: 'Sass', title: 'Sass' },
 					{ value: 'JavaScript', title: 'JavaScript' },
 					{ value: 'Csharp', title: 'C#' },
+					{ value: 'HTML', title: 'HTML' },
+					{ value: 'CSS', title: 'CSS' },
 					{ value: 'Unity', title: 'Unity' },
 					{ value: 'React', title: 'React' },
-					{ value: 'Cplusplus', title: 'C++' },
+					{ value: 'Cpp', title: 'C++' },
 					{ value: 'Bootstrap', title: 'Bootstrap' },
 					{ value: 'NodeJS', title: 'Node.js' },
 					{ value: 'Git', title: 'Git' },

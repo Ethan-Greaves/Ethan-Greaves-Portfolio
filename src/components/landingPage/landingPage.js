@@ -61,7 +61,7 @@ const LandingPage = ({ ...authorData }) => {
 	return (
 		<Container>
 			<div className={`${styles.header}`}>
-				<Typography variant='h2' align='center' className={`${styles.standOut}`}>
+				<Typography variant='h2' align='center' className={`${styles.standOut}`} >
 					{authorData.name}
 				</Typography>
 

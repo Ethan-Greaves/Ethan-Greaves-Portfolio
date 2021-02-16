@@ -34,7 +34,7 @@ const Stars = () => {
 						enable: true,
 						speed: 2,
 						random: false,
-						direction: 'right',
+						direction: 'top',
 						straight: true,
 						out_mode: 'out',
 						bounce: false,

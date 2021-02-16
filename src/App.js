@@ -7,6 +7,8 @@ import Projects from './components/projects/projects';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useSanityFetchState from './hooks/useSanityFetchState';
+import Skills from './components/skills/skills';
+import { Container } from '@material-ui/core';
 import './App.css';
 
 function App() {
@@ -55,7 +57,7 @@ function App() {
 				>
 					<Navbar />
 
-					<Route
+					{/* <Route
 						render={({ location }) => (
 							<TransitionGroup appear={true}>
 								<CSSTransition key={location.key} classNames='move-left' timeout={1800}>
@@ -71,7 +73,18 @@ function App() {
 								</CSSTransition>
 							</TransitionGroup>
 						)}
-					/>
+					/> */}
+
+					{/* <Container maxWidth='md'> */}
+					<LandingPage {...authorData[0]} />
+					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.5)' }}>
+						<Skills skills={authorData[0].skills} />
+					</div>
+					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }}>
+						<AboutPage {...authorData[0]} />
+					</div>
+					<Projects projectData={projectData} />
+					{/* </Container> */}
 				</ThemeProvider>
 				<div id='particles-js'>
 					<ParticleStars />

@@ -40,9 +40,6 @@ function App() {
 	}`);
 
 	if (themeIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
-		authorData[0].socials.forEach((social) => {
-			console.table(social);
-		});
 		return (
 			<div>
 				<ThemeProvider
@@ -63,24 +60,6 @@ function App() {
 				>
 					<Navbar />
 
-					{/* <Route
-						render={({ location }) => (
-							<TransitionGroup appear={true}>
-								<CSSTransition key={location.key} classNames='move-left' timeout={1800}>
-									<Switch location={location}>
-										<Route exact path='/' render={() => <LandingPage {...authorData[0]} />} />
-										<Route
-											exact
-											path='/projects'
-											render={() => <Projects projectData={projectData} />}
-										/>
-										<Route exact path='/about' render={() => <AboutPage {...authorData[0]} />} />
-									</Switch>
-								</CSSTransition>
-							</TransitionGroup>
-						)}
-					/> */}
-
 					<LandingPage {...authorData[0]} />
 
 					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
@@ -92,7 +71,7 @@ function App() {
 					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
 						<Projects projectData={projectData} />
 					</div>
-					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)', height: 'fit-content' }}>
+					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)', marginBottom: 0 }}>
 						<Footer {...authorData[0]} />
 					</div>
 				</ThemeProvider>

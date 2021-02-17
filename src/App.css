@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background-image: linear-gradient(
 		to right,
@@ -14,13 +18,14 @@ body {
 		#2c2e2e,
 		#323434
 	);
-
-	overflow-x: hidden;
-	overflow-y: auto;
 }
 
-html {
+html,
+body {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 /** Animations */

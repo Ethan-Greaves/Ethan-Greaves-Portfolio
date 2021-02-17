@@ -29,7 +29,7 @@ const Footer = ({ ...authorData }) => {
 					return (
 						<Grid item>
 							<ExternalLink newTab={true} to={social.link}>
-								<img src={social.image} alt={social.platform} style={{ height: 50, width: 'auto' }} />
+								<img src={social.image} alt={social.platform} style={{ height: 40, width: 'auto' }} />
 							</ExternalLink>
 						</Grid>
 					);

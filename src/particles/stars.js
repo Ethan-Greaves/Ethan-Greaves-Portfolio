@@ -32,7 +32,7 @@ const Stars = () => {
 					},
 					move: {
 						enable: true,
-						speed: 2,
+						speed: .5,
 						random: false,
 						direction: 'top',
 						straight: true,

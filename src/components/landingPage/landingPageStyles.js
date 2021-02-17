@@ -19,6 +19,24 @@ const useStyles = makeStyles({
 		color: props.themePrimaryColour,
 		fontWeight: 600,
 	}),
+
+	arrow: {
+		// animation: '$float .5s infinite',
+	},
+
+	'@keyframes float': {
+		'0%': {
+			transform: 'translatey(0px)',
+		},
+
+		'50%': {
+			transform: 'translatey(-15px)',
+		},
+
+		'100%': {
+			transform: 'translatey(0px)',
+		},
+	},
 });
 
 export default useStyles;

@@ -3,7 +3,7 @@ import Zoom from '@material-ui/core/Zoom';
 import { Tooltip, Grid, Box, Typography, useTheme, Container } from '@material-ui/core';
 import skillsStyles from './skillsStyles';
 import generalStyles from '../../commonStyles/generalStyles';
-import VerticallyPaddedContainer from '../../wrappers/verticallyPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 
 const Skills = ({ skills }) => {
 	const styles = skillsStyles({

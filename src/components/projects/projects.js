@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import ProjectCard from '../projectCard/projectCard';
 import Grid from '@material-ui/core/Grid';
 import generalStyles from '../../commonStyles/generalStyles';
-import VerticallyPaddedContainer from '../../wrappers/verticallyPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 import projectStyles from './projectsStyles';
 //#endregion
 

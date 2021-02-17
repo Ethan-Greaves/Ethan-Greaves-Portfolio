@@ -1,15 +1,17 @@
 //#region IMPORTS
-import { Box, Button, Grid, Typography} from '@material-ui/core';
+import { Box, Button, Grid, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import ExternalLink from '../../wrappers/externalLink';
+import ExternalLink from '../../Wrappers/externalLink';
 import { useTheme } from '@material-ui/core/styles';
 import { useState } from 'react';
 import landingPageStyles from './landingPageStyles';
 import './landingPageAnimations.scss';
-import buttonsInfo from './buttonInfo';
-import { v4 as uuidv4 } from 'uuid';
+// import buttonsInfo from './buttonInfo';
+// import { v4 as uuidv4 } from 'uuid';
 import '../../commonStyles/buttonAnims.scss';
 import buttonStyles from '../../commonStyles/buttonStyles';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //#endregion
 
 const LandingPage = ({ ...authorData }) => {
@@ -75,7 +77,7 @@ const LandingPage = ({ ...authorData }) => {
 
 			<Box pt={4} />
 
-			<Grid container direction='row-reverse' alignItems='center' justify='center' spacing={8}>
+			{/* <Grid container direction='row-reverse' alignItems='center' justify='center' spacing={8}>
 				{buttonsInfo(authorData.cv, authorData.email).map((button) => {
 					return (
 						<Grid key={uuidv4()} item>
@@ -83,7 +85,17 @@ const LandingPage = ({ ...authorData }) => {
 						</Grid>
 					);
 				})}
-			</Grid>
+			</Grid> */}
+
+			<a href='#skills'>
+				<FontAwesomeIcon
+					icon={faChevronDown}
+					size='1.5x'
+					color={themePalette.primary.main}
+					style={{ position: 'absolute', bottom: 0, left: '50%', marginBottom: '1em' }}
+					className={`${styles.arrow}`}
+				/>
+			</a>
 		</div>
 	);
 };

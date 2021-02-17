@@ -9,19 +9,19 @@ const useStyles = makeStyles({
 		'&:hover': {
 			transform: 'scale(1.1)',
 		},
-    },
+	},
 
-    header: (props) => ({
-        fontWeight: 400,
-        borderBottom: `.007px solid ${props.primaryColour}`,
-        maxWidth: 'fit-content',
-    }),
-    
-    // section: {
-    //     background: '#333333',
-    //     width: '100%',
-    //     opacity: 0.8,
-    // },
+	header: (props) => ({
+		fontWeight: 400,
+		borderBottom: `.007px solid ${props.primaryColour}`,
+		maxWidth: 'fit-content',
+	}),
+
+	// section: {
+	//     background: '#333333',
+	//     width: '100%',
+	//     opacity: 0.8,
+	// },
 
 	'@media (max-width: 426px)': {
 		skillImg: {
@@ -41,9 +41,9 @@ const useStyles = makeStyles({
 		skillImg: {
 			height: 40,
 		},
-    },
-    
-    '@media (max-width: 376px)': {
+	},
+
+	'@media (max-width: 376px)': {
 		skillImg: {
 			height: 50,
 		},

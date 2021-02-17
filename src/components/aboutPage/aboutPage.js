@@ -2,9 +2,9 @@ import { Avatar, Box, Button, Grid, Typography, useTheme } from '@material-ui/co
 import React from 'react';
 import aboutPageStyles from './aboutPageStyles';
 import generalStyles from '../../commonStyles/generalStyles';
-import VerticallyPaddedContainer from '../../wrappers/verticallyPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 import buttonStyles from '../../commonStyles/buttonStyles';
-import ExternalLink from '../../wrappers/externalLink';
+import ExternalLink from '../../Wrappers/externalLink';
 
 const AboutPage = ({ ...authorData }) => {
 	const styles = aboutPageStyles();
@@ -30,7 +30,7 @@ const AboutPage = ({ ...authorData }) => {
 					</Grid>
 
 					<Grid item xs={12} sm={3} align='right'>
-						<Box mt={2} />
+						<Box mt={1} />
 						<Avatar
 							variant='circle'
 							src={authorData.image}

@@ -1,14 +1,12 @@
-import { Switch, Route } from 'react-router-dom';
 import LandingPage from './components/landingPage/landingPage';
 import ParticleStars from './particles/stars';
 import AboutPage from './components/aboutPage/aboutPage';
 import Navbar from './components/navbar/navigationBar';
 import Projects from './components/projects/projects';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useSanityFetchState from './hooks/useSanityFetchState';
 import Skills from './components/skills/skills';
-import { Container } from '@material-ui/core';
+import Footer from './components/footer/footer';
 import './App.css';
 
 function App() {
@@ -76,17 +74,21 @@ function App() {
 					/> */}
 
 					<LandingPage {...authorData[0]} />
-					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
+
+					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
 						<Skills skills={authorData[0].skills} />
 					</div>
-					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)', margin: 0, padding: 0, width: '100vw' }}>
 						<AboutPage {...authorData[0]} />
 					</div>
 					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
 						<Projects projectData={projectData} />
 					</div>
+					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)', height: 'fit-content' }}>
+						<Footer {...authorData[0]} />
+					</div>
 				</ThemeProvider>
-				
+
 				<div id='particles-js'>
 					<ParticleStars />
 				</div>

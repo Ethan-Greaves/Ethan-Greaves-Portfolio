@@ -92,7 +92,7 @@ const LandingPage = ({ ...authorData }) => {
 					icon={faChevronDown}
 					size='1.5x'
 					color={themePalette.primary.main}
-					style={{ position: 'absolute', bottom: 0, left: '50%', marginBottom: '1em' }}
+					style={{ position: 'absolute', bottom: 0, left: '50%', marginBottom: '1.5em' }}
 					className={`${styles.arrow}`}
 				/>
 			</a>

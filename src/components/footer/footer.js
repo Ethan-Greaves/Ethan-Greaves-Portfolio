@@ -25,17 +25,18 @@ const Footer = ({ ...authorData }) => {
 			<Box mt={8} />
 
 			<Grid container justify='space-around'>
-				{socialIcons.map((icon) => {
+				{authorData.socials.map((social) => {
 					return (
 						<Grid item>
-							<ExternalLink newTab={true} to={icon.link}>
-								<FontAwesomeIcon icon={icon.icon} style={{ color: 'white' }} size='3x' />
+							<ExternalLink newTab={true} to={social.link}>
+								<img src={social.image} alt={social.platform} style={{ height: 50, width: 'auto' }} />
 							</ExternalLink>
 						</Grid>
 					);
 				})}
 			</Grid>
 			<Box mt={6} />
+
 			<Typography color='secondary' variant='caption'>
 				{`Developed by ${authorData.name}`} <span>&#169;</span> {new Date().getFullYear()}
 			</Typography>

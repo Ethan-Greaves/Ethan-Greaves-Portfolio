@@ -32,9 +32,17 @@ function App() {
 		"image": image.asset->url,
 		bio,
 		skills,
+		"socials": socials[]->{
+			platform,
+			link,
+			"image": image.asset->url,
+		}
 	}`);
 
 	if (themeIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
+		authorData[0].socials.forEach((social) => {
+			console.table(social);
+		});
 		return (
 			<div>
 				<ThemeProvider

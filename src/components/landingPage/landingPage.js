@@ -1,62 +1,25 @@
 //#region IMPORTS
-import { Box, Button, Grid, Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import ExternalLink from '../../Wrappers/externalLink';
-import { useTheme } from '@material-ui/core/styles';
+import { Box, Typography } from '@material-ui/core';
 import { useState } from 'react';
 import landingPageStyles from './landingPageStyles';
 import './landingPageAnimations.scss';
-// import buttonsInfo from './buttonInfo';
-// import { v4 as uuidv4 } from 'uuid';
 import '../../commonStyles/buttonAnims.scss';
-import buttonStyles from '../../commonStyles/buttonStyles';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //#endregion
 
 const LandingPage = ({ ...authorData }) => {
 	//#region INITILISATION
-	//#region STATE
-	const [themePalette] = useState(useTheme().palette);
 	const [currentDisplayedRole, setCurrentDisplayedRole] = useState('');
-	//#endregion
-	//#region STYLES
-	const styles = landingPageStyles({
-		themePrimaryColour: themePalette.primary.main,
-		themeSecondaryColour: themePalette.secondary.main,
-	});
-
-	const btnStyles = buttonStyles({
-		btnBackgroundColour: 'black',
-		btnSize: { main: '14px', side: '12px' },
-		themePrimaryColour: themePalette.primary.main,
-	});
-	//#endregion
+	const styles = landingPageStyles();
 	//#endregion
 
 	//#region CUSTOM METHODS
-	const checkIfButtonRedirects = (object) => {
-		if (!object.redirect) {
-			return (
-				<Link to={object.link}>
-					<Button variant='contained' className={`${btnStyles.primaryBtn} hvr-bob`}>
-						{object.text}
-					</Button>
-				</Link>
-			);
-		} else {
-			return (
-				<ExternalLink to={object.link} newTab={true}>
-					<Button className={`${btnStyles.secondaryBtn} hvr-bob`}>{object.text}</Button>
-				</ExternalLink>
-			);
-		}
-	};
-
 	const setRandomRole = () => {
 		setCurrentDisplayedRole(
 			//*Filter to return an array without the previous role and randomly choose from it
 			authorData.roles.filter((role) => role !== currentDisplayedRole)[
+				//* Select randomly from roles array and floor number to avoid decimals
 				Math.floor(Math.random() * authorData.roles.length)
 			]
 		);
@@ -77,24 +40,8 @@ const LandingPage = ({ ...authorData }) => {
 
 			<Box pt={4} />
 
-			{/* <Grid container direction='row-reverse' alignItems='center' justify='center' spacing={8}>
-				{buttonsInfo(authorData.cv, authorData.email).map((button) => {
-					return (
-						<Grid key={uuidv4()} item>
-							{checkIfButtonRedirects(button)}
-						</Grid>
-					);
-				})}
-			</Grid> */}
-
 			<a href='#skills'>
-				<FontAwesomeIcon
-					icon={faChevronDown}
-					size='1.5x'
-					color={themePalette.primary.main}
-					style={{ position: 'absolute', bottom: 0, left: '50%', marginBottom: '1.5em' }}
-					className={`${styles.arrow}`}
-				/>
+				<FontAwesomeIcon icon={faChevronDown} size='1.5x' className={`${styles.arrow}`} />
 			</a>
 		</div>
 	);

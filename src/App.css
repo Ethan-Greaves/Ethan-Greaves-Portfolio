@@ -1,7 +1,3 @@
-* {
-	box-sizing: border-box;
-}
-
 body {
 	background-image: linear-gradient(
 		to right,
@@ -28,45 +24,6 @@ body {
 	padding: 0;
 }
 
-/** Animations */
-/** ------------------------------------------------- */
-.fade-exit {
-	opacity: 1;
-}
-
-.fade-exit-active {
-	opacity: 0;
-	transition: opacity 500ms;
-}
-
-.fade-enter {
-	opacity: 0;
-}
-
-.fade-enter-active {
-	opacity: 1;
-	transition: opacity 500ms;
-}
-
-.move-left-exit {
-	transform: translateX(0px);
-}
-
-.move-left-exit-active {
-	transform: translateX(-6000px);
-	transition: 1800ms;
-}
-
-.move-left-enter {
-	transform: translateX(6000px);
-}
-
-.move-left-enter-active {
-	transform: translateX(0px);
-	transition: 1800ms;
-}
-/** ------------------------------------------------- */
-
 /** Particle background */
 /** ------------------------------------------------- */
 #particles-js {
@@ -82,31 +39,5 @@ body {
 	top: 0;
 	/* put it behind other content */
 	z-index: -1;
-}
-/** ------------------------------------------------- */
-
-/** Scrollbar */
-/** ------------------------------------------------- */
-/* width */
-::-webkit-scrollbar {
-	width: 10px;
-	height: 0;
-	overflow: hidden;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: #323434;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: linear-gradient(to top, rgba(255, 68, 0, 0.4), orangered, rgba(255, 68, 0, 0.4));
-	border-radius: 20px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	/* background: #555; */
 }
 /** ------------------------------------------------- */

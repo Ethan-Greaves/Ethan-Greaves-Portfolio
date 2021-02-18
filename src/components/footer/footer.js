@@ -1,24 +1,13 @@
-import { Typography, useTheme, Grid, Box } from '@material-ui/core';
-import React, { useState } from 'react';
+import { Typography, Grid, Box } from '@material-ui/core';
+import React from 'react';
 import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 import generalStyles from '../../commonStyles/generalStyles';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ExternalLink from '../../Wrappers/externalLink';
 
 const Footer = ({ ...authorData }) => {
-	const primaryColour = useTheme().palette.primary.main;
-
-	const socialIcons = [
-		{ icon: faGithub, link: 'https://github.com/Ethan-Greaves', colour: 'white' },
-		{ icon: faLinkedin, link: 'https://www.linkedin.com/in/ethan-greaves-b39504178/', colour: '#2867B2' },
-		{ icon: faEnvelope, link: authorData.email, colour: 'white' },
-	];
-
 	return (
-		<VerticallyPaddedContainer maxWidth='md' bottomPadding={1}>
-			<Typography color='primary' variant='h5' className={`${generalStyles({ primaryColour }).underline}`}>
+		<VerticallyPaddedContainer bottomPadding={1}>
+			<Typography color='primary' variant='h5' className={`${generalStyles().underline}`}>
 				{`socials`.toUpperCase()}
 			</Typography>
 
@@ -29,7 +18,7 @@ const Footer = ({ ...authorData }) => {
 					return (
 						<Grid item>
 							<ExternalLink newTab={true} to={social.link}>
-								<img src={social.image} alt={social.platform} style={{ height: 40, width: 'auto' }} />
+								<img src={social.image} alt={social.platform} style={{ height: 40 }} />
 							</ExternalLink>
 						</Grid>
 					);

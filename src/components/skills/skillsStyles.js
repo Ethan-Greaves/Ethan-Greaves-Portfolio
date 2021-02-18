@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	skillImg: {
 		height: 90,
 		width: 'auto',
@@ -11,17 +11,11 @@ const useStyles = makeStyles({
 		},
 	},
 
-	header: (props) => ({
+	header: {
 		fontWeight: 400,
-		borderBottom: `.007px solid ${props.primaryColour}`,
+		borderBottom: `.007px solid ${theme.palette.primary.main}`,
 		maxWidth: 'fit-content',
-	}),
-
-	// section: {
-	//     background: '#333333',
-	//     width: '100%',
-	//     opacity: 0.8,
-	// },
+	},
 
 	'@media (max-width: 426px)': {
 		skillImg: {
@@ -48,6 +42,6 @@ const useStyles = makeStyles({
 			height: 50,
 		},
 	},
-});
+}));
 
 export default useStyles;

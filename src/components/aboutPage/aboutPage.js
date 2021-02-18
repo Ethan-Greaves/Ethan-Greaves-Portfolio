@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Grid, Typography, useTheme } from '@material-ui/core';
+import { Avatar, Box, Button, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import aboutPageStyles from './aboutPageStyles';
 import generalStyles from '../../commonStyles/generalStyles';
@@ -8,18 +8,11 @@ import ExternalLink from '../../Wrappers/externalLink';
 
 const AboutPage = ({ ...authorData }) => {
 	const styles = aboutPageStyles();
-	const primaryColour = useTheme().palette.primary.main;
-	const genStyles = generalStyles({ primaryColour });
-	const btnStyles = buttonStyles({
-		btnBackgroundColour: 'black',
-		btnSize: { main: '8px', side: '12px' },
-		themePrimaryColour: primaryColour,
-	});
 
 	return (
-		<VerticallyPaddedContainer maxWidth='md'>
+		<VerticallyPaddedContainer>
 			<div className={`${styles.text}`}>
-				<Typography variant='h5' color='primary' className={`${genStyles.underline}`}>
+				<Typography variant='h5' color='primary' className={`${generalStyles().underline}`}>
 					{`About me`.toUpperCase()}
 				</Typography>
 				<Box mt={4} />
@@ -34,8 +27,7 @@ const AboutPage = ({ ...authorData }) => {
 						<Avatar
 							variant='circle'
 							src={authorData.image}
-							className={`${styles.small}`}
-							style={{ border: `2.5px solid ${primaryColour}` }}
+							className={`${styles.small} ${styles.profileImg}`}
 						/>
 					</Grid>
 				</Grid>
@@ -43,7 +35,7 @@ const AboutPage = ({ ...authorData }) => {
 				<Box mt={3} />
 
 				<ExternalLink to={authorData.cv} newTab={true}>
-					<Button className={`${btnStyles.primaryBtn}`}>Download CV</Button>
+					<Button className={`${buttonStyles().primaryBtn}`}>Download CV</Button>
 				</ExternalLink>
 			</div>
 		</VerticallyPaddedContainer>

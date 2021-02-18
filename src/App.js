@@ -1,12 +1,12 @@
 import LandingPage from './components/landingPage/landingPage';
 import ParticleStars from './particles/stars';
 import AboutPage from './components/aboutPage/aboutPage';
-import Navbar from './components/navbar/navigationBar';
 import Projects from './components/projects/projects';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useSanityFetchState from './hooks/useSanityFetchState';
 import Skills from './components/skills/skills';
 import Footer from './components/footer/footer';
+import Scrollbar from './components/scrollbar/scrollbar';
 import './App.css';
 
 function App() {
@@ -58,22 +58,22 @@ function App() {
 						},
 					})}
 				>
-					<Navbar />
+					<Scrollbar>
+						<LandingPage {...authorData[0]} />
 
-					<LandingPage {...authorData[0]} />
-
-					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
-						<Skills skills={authorData[0].skills} />
-					</div>
-					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)', margin: 0, padding: 0, width: '100vw' }}>
-						<AboutPage {...authorData[0]} />
-					</div>
-					<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
-						<Projects projectData={projectData} />
-					</div>
-					<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)', marginBottom: 0 }}>
-						<Footer {...authorData[0]} />
-					</div>
+						<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
+							<Skills skills={authorData[0].skills} />
+						</div>
+						<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+							<AboutPage {...authorData[0]} />
+						</div>
+						<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
+							<Projects projectData={projectData} />
+						</div>
+						<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+							<Footer {...authorData[0]} />
+						</div>
+					</Scrollbar>
 				</ThemeProvider>
 
 				<div id='particles-js'>

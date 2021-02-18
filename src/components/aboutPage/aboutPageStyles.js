@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
 		height: theme.spacing(30),
 	},
 
+	profileImg: {
+		border: `2.5px solid ${theme.palette.primary.main}`,
+	},
+
 	'@media (max-width: 426px) and (orientation: portrait)': {
 		text: {
 			textAlign: 'center',

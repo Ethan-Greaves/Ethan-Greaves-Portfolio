@@ -1,24 +1,20 @@
 import React from 'react';
 import Zoom from '@material-ui/core/Zoom';
-import { Tooltip, Grid, Box, Typography, useTheme, Container } from '@material-ui/core';
+import { Tooltip, Grid, Box, Typography } from '@material-ui/core';
 import skillsStyles from './skillsStyles';
 import generalStyles from '../../commonStyles/generalStyles';
 import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 
 const Skills = ({ skills }) => {
-	const styles = skillsStyles({
-		primaryColour: useTheme().palette.primary.main,
-	});
-	const genStyles = generalStyles({ primaryColour: useTheme().palette.primary.main });
-	const primaryColour = useTheme().palette.primary.main;
+	const styles = skillsStyles();
 
 	return (
-		<VerticallyPaddedContainer maxWidth='md'>
-			<div className={`${styles.section}`}>
+		<VerticallyPaddedContainer>
+			<div>
 				<Typography
 					variant='h5'
 					color='primary'
-					className={`${styles.header} ${genStyles.underline}`}
+					className={`${styles.header} ${generalStyles().underline}`}
 					gutterBottom={true}
 				>
 					{`Skills`.toUpperCase()}

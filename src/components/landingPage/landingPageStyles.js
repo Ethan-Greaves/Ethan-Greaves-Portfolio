@@ -1,27 +1,27 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-	header: (props) => ({
-		color: props.themeSecondaryColour,
+const useStyles = makeStyles((theme) => ({
+	header: {
+		color: theme.palette.secondary.main,
 		textTransform: 'uppercase',
-		// position: 'absolute',
-		// top: '50%',
-		// left: '50%',
-		// transform: 'translate(-50%, -50%)',
 		display: 'flex',
 		flexDirection: 'column',
-		// alignItems: 'center',
 		justifyContent: 'center',
 		height: '100vh',
-	}),
+	},
 
-	standOut: (props) => ({
-		color: props.themePrimaryColour,
+	standOut: {
+		color: theme.palette.primary.main,
 		fontWeight: 600,
-	}),
+	},
 
 	arrow: {
-		// animation: '$float .5s infinite',
+		animation: '$float 1s infinite',
+		color: theme.palette.primary.main,
+		position: 'absolute',
+		bottom: 0,
+		left: '50%',
+		marginBottom: '1.5em',
 	},
 
 	'@keyframes float': {
@@ -30,13 +30,13 @@ const useStyles = makeStyles({
 		},
 
 		'50%': {
-			transform: 'translatey(-15px)',
+			transform: 'translatey(-5px)',
 		},
 
 		'100%': {
 			transform: 'translatey(0px)',
 		},
 	},
-});
+}));
 
 export default useStyles;

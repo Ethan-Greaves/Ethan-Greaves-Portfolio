@@ -23,9 +23,9 @@ function landingPageBtn(btnColour, btnBackgroundColour, btnSize) {
 	};
 }
 
-const useStyles = makeStyles({
-	secondaryBtn: (props) => landingPageBtn(props.themePrimaryColour, 'none', null),
-	primaryBtn: (props) => landingPageBtn(props.btnBackgroundColour, props.themePrimaryColour, props.btnSize.main),
-});
+const useStyles = makeStyles((theme) => ({
+	secondaryBtn: (props) => landingPageBtn(theme.palette.primary.main, 'none', null),
+	primaryBtn: (props) => landingPageBtn('black', theme.palette.primary.main, '8px'),
+}));
 
 export default useStyles;

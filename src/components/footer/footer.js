@@ -17,7 +17,7 @@ const Footer = ({ ...authorData }) => {
 				{authorData.socials.map((social) => {
 					return (
 						<Grid item>
-							<ExternalLink newTab={true} to={social.link}>
+							<ExternalLink newTab={true} to={social.link} noopener={true}>
 								<img src={social.image} alt={social.platform} style={{ height: 40 }} />
 							</ExternalLink>
 						</Grid>

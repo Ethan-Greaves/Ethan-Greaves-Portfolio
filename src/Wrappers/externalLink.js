@@ -1,6 +1,6 @@
-const ExternalLink = ({ children, to, newTab = false }) => {
+const ExternalLink = ({ children, to, newTab = false, noopener = false }) => {
 	return (
-		<a href={to} target={newTab && '_blank'}>
+		<a href={to} target={newTab && '_blank'} rel={noopener && 'noopener'}>
 			{children}
 		</a>
 	);

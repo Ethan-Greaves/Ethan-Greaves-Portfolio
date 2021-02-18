@@ -18,7 +18,10 @@ const settings = {
 	title: 'Settings',
 	type: 'document',
 
-	fieldsets: [{ name: 'palette', title: 'Palette' }],
+	fieldsets: [
+		{ name: 'palette', title: 'Palette' },
+		{ name: 'metaData', title: 'Meta data' },
+	],
 
 	fields: [
 		{
@@ -66,6 +69,24 @@ const settings = {
 				},
 
 				list: colours,
+			},
+		},
+		{
+			title: 'Meta description',
+			name: 'metaDescription',
+			description: 'The description that will show up on SERP, Twitter cards, etc.',
+			type: 'text',
+			fieldset: 'metaData',
+			validation: (Rule) => [Rule.max(180), Rule.min(120)],
+		},
+		{
+			title: 'Favicon',
+			name: 'metaFavicon',
+			description: 'Image that will appear on tab next tot tile and on mobile device home pages',
+			type: 'image',
+			fieldset: 'metaData',
+			options: {
+				accept: ['.png', '.gif', '.ico'],
 			},
 		},
 	],

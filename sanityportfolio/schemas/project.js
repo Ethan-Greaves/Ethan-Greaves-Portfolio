@@ -54,6 +54,7 @@ const projectSchema = {
 			type: 'array',
 			of: [{ type: 'image' }],
 			fieldset: 'media',
+			
 		},
 		{
 			name: 'video',

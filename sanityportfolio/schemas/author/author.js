@@ -75,32 +75,7 @@ const author = {
 			],
 
 			validation: (Rule) => [Rule.unique()],
-			// options: {
-			// 	list: [{ value: , title: 'Github' }],
-			// },
 		},
-		// {
-		// 	name: 'github',
-		// 	title: 'GitHub',
-		// 	type: 'url',
-		// 	fieldset: 'social',
-		// },
-		// {
-		// 	name: 'linkedin',
-		// 	title: 'LinkedIn',
-		// 	type: 'url',
-		// 	fieldset: 'social',
-		// },
-		// {
-		// 	name: 'email',
-		// 	title: 'Email',
-		// 	type: 'url',
-		// 	validation: (Rule) =>
-		// 		Rule.uri({
-		// 			scheme: ['mailto'],
-		// 		}),
-		// 	fieldset: 'social',
-		// },
 	],
 
 	preview: {

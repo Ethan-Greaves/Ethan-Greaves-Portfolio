@@ -1,6 +1,6 @@
 //#region IMPORTS
 import { Box, Typography } from '@material-ui/core';
-import React, { useState } from 'react';
+import React from 'react';
 import ProjectCard from '../projectCard/projectCard';
 import Grid from '@material-ui/core/Grid';
 import generalStyles from '../../commonStyles/generalStyles';

@@ -1,6 +1,6 @@
 //#region IMPORTS
 import { Box, Typography } from '@material-ui/core';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import landingPageStyles from './landingPageStyles';
 import './landingPageAnimations.scss';
 import '../../commonStyles/buttonAnims.scss';

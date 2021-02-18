@@ -7,6 +7,7 @@ import useSanityFetchState from './hooks/useSanityFetchState';
 import Skills from './components/skills/skills';
 import Footer from './components/footer/footer';
 import Scrollbar from './components/scrollbar/scrollbar';
+import MetaData from './components/metaData/metaData';
 import './App.css';
 
 function App() {
@@ -18,9 +19,11 @@ function App() {
 		  }
 		  `);
 
-	const [theme, themeIsLoaded] = useSanityFetchState(`*[_type == "settings"]{
+	const [settings, settingsIsLoaded] = useSanityFetchState(`*[_type == "settings"]{
 		"primaryColour": primaryColour.value,
 		"secondaryColour": secondaryColour.value,
+		"metaFavicon": metaFavicon.asset->url,
+		metaDescription,
 	  }	  
 	  `);
 
@@ -39,47 +42,50 @@ function App() {
 		}
 	}`);
 
-	if (themeIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
+	if (settingsIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
 		return (
-			<div>
-				<ThemeProvider
-					theme={createMuiTheme({
-						typography: {
-							fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-							fontSize: 16,
-						},
-						palette: {
-							primary: {
-								main: theme[0].primaryColour,
+			<main>
+				<MetaData props={{...authorData[0], ...settings[0]}}/>
+				<div>
+					<ThemeProvider
+						theme={createMuiTheme({
+							typography: {
+								fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+								fontSize: 16,
 							},
-							secondary: {
-								main: theme[0].secondaryColour,
+							palette: {
+								primary: {
+									main: settings[0].primaryColour,
+								},
+								secondary: {
+									main: settings[0].secondaryColour,
+								},
 							},
-						},
-					})}
-				>
-					<Scrollbar>
-						<LandingPage {...authorData[0]} />
+						})}
+					>
+						<Scrollbar>
+							<LandingPage {...authorData[0]} />
 
-						<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
-							<Skills skills={authorData[0].skills} />
-						</div>
-						<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
-							<AboutPage {...authorData[0]} />
-						</div>
-						<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
-							<Projects projectData={projectData} />
-						</div>
-						<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
-							<Footer {...authorData[0]} />
-						</div>
-					</Scrollbar>
-				</ThemeProvider>
+							<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
+								<Skills skills={authorData[0].skills} />
+							</div>
+							<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+								<AboutPage {...authorData[0]} />
+							</div>
+							<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
+								<Projects projectData={projectData} />
+							</div>
+							<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+								<Footer {...authorData[0]} />
+							</div>
+						</Scrollbar>
+					</ThemeProvider>
 
-				<div id='particles-js'>
-					<ParticleStars />
+					<div id='particles-js'>
+						<ParticleStars />
+					</div>
 				</div>
-			</div>
+			</main>
 		);
 	} else return null;
 }

@@ -20,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
 	'@media (max-width: 426px)': {
 		skillImg: {
 			height: 60,
-			display: 'block',
-			marginLeft: 'auto',
-			marginRight: 'auto',
-			width: '50%',
+			// display: 'block',
+			// marginLeft: 'auto',
+			// marginRight: 'auto',
+			// // width: '50%',
 		},
 
 		header: {

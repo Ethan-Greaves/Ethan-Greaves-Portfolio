@@ -28,13 +28,15 @@ const AboutPage = ({ ...authorData }) => {
 							variant='circle'
 							src={authorData.image}
 							className={`${styles.small} ${styles.profileImg}`}
+							alt={`${authorData.name} profile image`}
+							rel='preconnect'
 						/>
 					</Grid>
 				</Grid>
 
 				<Box mt={3} />
 
-				<ExternalLink to={authorData.cv} newTab={true}>
+				<ExternalLink to={authorData.cv} newTab={true} noopener={true}>
 					<Button className={`${buttonStyles().primaryBtn}`}>Download CV</Button>
 				</ExternalLink>
 			</div>

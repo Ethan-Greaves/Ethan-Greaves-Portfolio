@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import useSanityFetchState from './hooks/useSanityFetchState';
 import './App.css';
+
+import React, { Suspense } from 'react';
+import { ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import useSanityFetchState from './hooks/useSanityFetchState';
 import ParticleStars from './particles/stars';
 
 import LandingPage from './components/landingPage/landingPage';
@@ -46,28 +47,28 @@ function App() {
 	}`);
 
 	if (settingsIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
+		let theme = createMuiTheme({
+			palette: {
+				primary: {
+					main: settings[0].primaryColour,
+				},
+				secondary: {
+					main: settings[0].secondaryColour,
+				},
+			},
+		});
+
+		theme = responsiveFontSizes(theme);
+		theme.typography.h1 = {
+			fontSize: '5rem',
+		};
 		return (
 			<main>
 				<Suspense fallback={<div>Loading...</div>}>
 					<MetaData props={{ ...authorData[0], ...settings[0] }} />
 				</Suspense>
 				<div>
-					<ThemeProvider
-						theme={createMuiTheme({
-							typography: {
-								fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-								fontSize: 16,
-							},
-							palette: {
-								primary: {
-									main: settings[0].primaryColour,
-								},
-								secondary: {
-									main: settings[0].secondaryColour,
-								},
-							},
-						})}
-					>
+					<ThemeProvider theme={theme}>
 						<Suspense fallback={<div>Loading...</div>}>
 							<Scrollbar>
 								<LandingPage {...authorData[0]} />

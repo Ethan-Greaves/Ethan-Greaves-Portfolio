@@ -28,7 +28,7 @@ const LandingPage = ({ ...authorData }) => {
 
 	return (
 		<div className={`${styles.header}`}>
-			<Typography variant='h2' align='center' className={`${styles.standOut}`}>
+			<Typography variant='h1' align='center' className={`${styles.standOut}`}>
 				{authorData.name}
 			</Typography>
 
@@ -40,7 +40,7 @@ const LandingPage = ({ ...authorData }) => {
 
 			<Box pt={4} />
 
-			<a href='#skills'>
+			<a href='#skills' aria-label='Skills section'>
 				<FontAwesomeIcon icon={faChevronDown} size='1x' className={`${styles.arrow}`} />
 			</a>
 		</div>

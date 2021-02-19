@@ -23,7 +23,6 @@ const AboutPage = ({ ...authorData }) => {
 					</Grid>
 
 					<Grid item xs={12} sm={3} align='center'>
-						<Box mt={1} />
 						<Avatar
 							variant='circular'
 							src={authorData.image + '?h=200&fm=webp'}

@@ -18,6 +18,9 @@ const social = {
 			name: 'image',
 			title: 'Image',
 			type: 'image',
+			options: {
+				accept: ['.webp'],
+			},
 		},
 	],
 

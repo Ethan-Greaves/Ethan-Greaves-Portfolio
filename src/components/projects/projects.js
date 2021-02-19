@@ -1,11 +1,13 @@
 //#region IMPORTS
-import { Box, Typography } from '@material-ui/core';
-import React from 'react';
-import ProjectCard from '../projectCard/projectCard';
+import React, { Suspense } from 'react';
 import Grid from '@material-ui/core/Grid';
 import generalStyles from '../../commonStyles/generalStyles';
 import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 import projectStyles from './projectsStyles';
+import { Box, Typography } from '@material-ui/core';
+import { v4 as uuidv4 } from 'uuid';
+const ProjectCard = React.lazy(() => import('../projectCard/projectCard'));
+
 //#endregion
 
 const Projects = ({ projectData }) => {
@@ -22,7 +24,7 @@ const Projects = ({ projectData }) => {
 			<Grid container direction='row' spacing={4} className={`${styles.projects}`}>
 				{projectData.map((project) => {
 					return (
-						<Grid item xs={12} sm={8} md={6} lg={4}>
+						<Grid item xs={12} sm={8} md={6} lg={4} key={uuidv4()}>
 							<ProjectCard project={project} />
 						</Grid>
 					);

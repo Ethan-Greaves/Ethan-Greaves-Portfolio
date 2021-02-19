@@ -3,6 +3,8 @@ import React from 'react';
 import VerticallyPaddedContainer from '../../Wrappers/verticallyPaddedContainer';
 import generalStyles from '../../commonStyles/generalStyles';
 import ExternalLink from '../../Wrappers/externalLink';
+import LazyLoad from 'react-lazyload';
+import { v4 as uuidv4 } from 'uuid';
 
 const Footer = ({ ...authorData }) => {
 	return (
@@ -16,9 +18,11 @@ const Footer = ({ ...authorData }) => {
 			<Grid container justify='space-around'>
 				{authorData.socials.map((social) => {
 					return (
-						<Grid item>
+						<Grid item key={uuidv4()}>
 							<ExternalLink newTab={true} to={social.link} noopener={true}>
-								<img src={social.image} alt={social.platform} style={{ height: 40 }} />
+								<LazyLoad placeholder={<p>Loading...</p>} once={true}>
+									<img src={social.image} alt={social.platform} style={{ height: 40 }} />
+								</LazyLoad>
 							</ExternalLink>
 						</Grid>
 					);

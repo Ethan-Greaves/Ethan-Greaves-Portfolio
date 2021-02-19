@@ -2,6 +2,7 @@ import { Card, CardActionArea, CardContent, CardHeader, CardMedia, Typography } 
 import React, { useState } from 'react';
 import projectCardStyles from './projectCardStyles';
 import { useTheme } from '@material-ui/core/styles';
+import LazyLoad from 'react-lazyload';
 
 const ProjectCard = ({ project }) => {
 	const themePalette = useTheme().palette;
@@ -16,7 +17,9 @@ const ProjectCard = ({ project }) => {
 
 			<Card variant='outlined' className={`${styles.card}`}>
 				<CardActionArea>
-					<CardMedia image={project.coverImage} title={project.title} style={{ height: 200 }} />
+					<LazyLoad placeholder={<p>loading...</p>} once={true}>
+						<CardMedia image={project.coverImage} title={project.title} style={{ height: 200 }} />
+					</LazyLoad>
 				</CardActionArea>
 			</Card>
 		</div>

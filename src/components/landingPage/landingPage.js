@@ -41,7 +41,7 @@ const LandingPage = ({ ...authorData }) => {
 			<Box pt={4} />
 
 			<a href='#skills'>
-				<FontAwesomeIcon icon={faChevronDown} size='1.5x' className={`${styles.arrow}`} />
+				<FontAwesomeIcon icon={faChevronDown} size='1x' className={`${styles.arrow}`} />
 			</a>
 		</div>
 	);

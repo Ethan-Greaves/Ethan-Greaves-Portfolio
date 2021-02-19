@@ -44,6 +44,7 @@ const projectSchema = {
 			type: 'image',
 			options: {
 				hotspot: true,
+				accept: ['.webp'],
 			},
 			fieldset: 'media',
 		},
@@ -54,7 +55,6 @@ const projectSchema = {
 			type: 'array',
 			of: [{ type: 'image' }],
 			fieldset: 'media',
-			
 		},
 		{
 			name: 'video',

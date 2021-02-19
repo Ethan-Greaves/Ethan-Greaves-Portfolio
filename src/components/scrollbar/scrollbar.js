@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ScrollbarStyles from './scrollbarStyles';
 const Scrollbar = ({ children }) => {
-	const styles = ScrollbarStyles();
+	ScrollbarStyles();
 	return <div>{children}</div>;
 };
 

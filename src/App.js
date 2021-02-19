@@ -1,14 +1,17 @@
-import LandingPage from './components/landingPage/landingPage';
-import ParticleStars from './particles/stars';
-import AboutPage from './components/aboutPage/aboutPage';
-import Projects from './components/projects/projects';
+import React, { Suspense } from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import useSanityFetchState from './hooks/useSanityFetchState';
-import Skills from './components/skills/skills';
-import Footer from './components/footer/footer';
-import Scrollbar from './components/scrollbar/scrollbar';
-import MetaData from './components/metaData/metaData';
 import './App.css';
+import ParticleStars from './particles/stars';
+
+import LandingPage from './components/landingPage/landingPage';
+import MetaData from './components/metaData/metaData';
+import Scrollbar from './components/scrollbar/scrollbar';
+
+const AboutPage = React.lazy(() => import('./components/aboutPage/aboutPage'));
+const Projects = React.lazy(() => import('./components/projects/projects'));
+const Footer = React.lazy(() => import('./components/footer/footer'));
+const Skills = React.lazy(() => import('./components/skills/skills'));
 
 function App() {
 	const [projectData, projectDataIsLoaded] = useSanityFetchState(`*[_type == "project"]{
@@ -45,7 +48,9 @@ function App() {
 	if (settingsIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
 		return (
 			<main>
-				<MetaData props={{...authorData[0], ...settings[0]}}/>
+				<Suspense fallback={<div>Loading...</div>}>
+					<MetaData props={{ ...authorData[0], ...settings[0] }} />
+				</Suspense>
 				<div>
 					<ThemeProvider
 						theme={createMuiTheme({
@@ -63,22 +68,24 @@ function App() {
 							},
 						})}
 					>
-						<Scrollbar>
-							<LandingPage {...authorData[0]} />
+						<Suspense fallback={<div>Loading...</div>}>
+							<Scrollbar>
+								<LandingPage {...authorData[0]} />
 
-							<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
-								<Skills skills={authorData[0].skills} />
-							</div>
-							<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
-								<AboutPage {...authorData[0]} />
-							</div>
-							<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
-								<Projects projectData={projectData} />
-							</div>
-							<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
-								<Footer {...authorData[0]} />
-							</div>
-						</Scrollbar>
+								<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }} id='skills'>
+									<Skills skills={authorData[0].skills} />
+								</div>
+								<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+									<AboutPage {...authorData[0]} />
+								</div>
+								<div style={{ backgroundColor: 'rgb(50, 50, 50, 0.6)' }}>
+									<Projects projectData={projectData} />
+								</div>
+								<div style={{ backgroundColor: 'rgb(0, 0, 0, 0.6)' }}>
+									<Footer {...authorData[0]} />
+								</div>
+							</Scrollbar>
+						</Suspense>
 					</ThemeProvider>
 
 					<div id='particles-js'>

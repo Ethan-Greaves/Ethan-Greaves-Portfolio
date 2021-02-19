@@ -17,7 +17,7 @@ const AboutPage = ({ ...authorData }) => {
 				</Typography>
 				<Box mt={4} />
 
-				<Grid container direction='rows' justify='space-between' spacing={4} className={`${styles.grid}`}>
+				<Grid container direction='row' justify='space-between' spacing={4} className={`${styles.grid}`}>
 					<Grid item xs={12} sm={9}>
 						<Typography color='secondary'>{authorData.bio} </Typography>
 					</Grid>
@@ -25,11 +25,10 @@ const AboutPage = ({ ...authorData }) => {
 					<Grid item xs={12} sm={3} align='right'>
 						<Box mt={1} />
 						<Avatar
-							variant='circle'
+							variant='circular'
 							src={authorData.image}
 							className={`${styles.small} ${styles.profileImg}`}
 							alt={`${authorData.name} profile image`}
-							rel='preconnect'
 						/>
 					</Grid>
 				</Grid>

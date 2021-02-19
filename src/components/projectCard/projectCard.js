@@ -18,10 +18,17 @@ const ProjectCard = ({ project }) => {
 			<Card variant='outlined' className={`${styles.card}`}>
 				<CardActionArea>
 					<LazyLoad placeholder={<p>loading...</p>} once={true}>
-						<CardMedia image={project.coverImage} title={project.title} style={{ height: 200 }} />
+						<CardMedia
+							image={project.coverImage + '?h=250&fm=webp'}
+							title={project.title}
+							style={{ height: 200 }}
+						/>
 					</LazyLoad>
 				</CardActionArea>
 			</Card>
+			{/* <LazyLoad placeholder={<p>loading...</p>} once={true}>
+				<img src={project.coverImage + '?h=150&w=150&auto=format'} alt={project.title} />
+			</LazyLoad> */}
 		</div>
 	);
 };

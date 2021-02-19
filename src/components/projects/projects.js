@@ -24,7 +24,7 @@ const Projects = ({ projectData }) => {
 			<Grid container direction='row' spacing={4} className={`${styles.projects}`}>
 				{projectData.map((project) => {
 					return (
-						<Grid item xs={12} sm={8} md={6} lg={4} key={uuidv4()}>
+						<Grid item xs={12} sm={6} md={4} key={uuidv4()}>
 							<ProjectCard project={project} />
 						</Grid>
 					);

@@ -21,7 +21,7 @@ const Footer = ({ ...authorData }) => {
 						<Grid item key={uuidv4()}>
 							<ExternalLink newTab={true} to={social.link} noopener={true}>
 								<LazyLoad placeholder={<p>Loading...</p>} once={true}>
-									<img src={social.image} alt={social.platform} style={{ height: 40 }} />
+									<img src={social.image + '?h=40&fm=webp'} alt={social.platform} />
 								</LazyLoad>
 							</ExternalLink>
 						</Grid>

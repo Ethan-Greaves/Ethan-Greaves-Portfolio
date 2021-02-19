@@ -9,7 +9,11 @@ const MetaData = ({ props }) => {
 			<meta charSet='UTF-8' />
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 			<meta name='description' content={props.metaDescription} />
-			<link rel='icon' href={props.metaFavicon} type='image/x-icon' />
+			<link
+				rel='icon'
+				href={`${props.metaFavicon}?h=32&fm=webp&bg=${props.primaryColour.substring(1)}`}
+				style={{ borderRadius: '100px' }}
+			/>
 
 			{/* Open graph tags */}
 			<meta property='og:type' content='website' />

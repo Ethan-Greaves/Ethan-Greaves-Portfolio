@@ -44,7 +44,6 @@ const projectSchema = {
 			type: 'image',
 			options: {
 				hotspot: true,
-				accept: ['.webp'],
 			},
 			fieldset: 'media',
 		},

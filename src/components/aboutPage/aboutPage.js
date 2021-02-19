@@ -22,11 +22,11 @@ const AboutPage = ({ ...authorData }) => {
 						<Typography color='secondary'>{authorData.bio} </Typography>
 					</Grid>
 
-					<Grid item xs={12} sm={3} align='right'>
+					<Grid item xs={12} sm={3} align='center'>
 						<Box mt={1} />
 						<Avatar
 							variant='circular'
-							src={authorData.image}
+							src={authorData.image + '?h=200&fm=webp'}
 							className={`${styles.small} ${styles.profileImg}`}
 							alt={`${authorData.name} profile image`}
 						/>

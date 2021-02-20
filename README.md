@@ -20,6 +20,9 @@ My portfolio website which showcases my skills/the technologies I know, my proje
 -   Material-UI
 -   JSS
 -   JavaScript (ES6)
+-   Netlify
+-   Sanity.io
+
 
 ## Visuals 🎬
 

@@ -46,7 +46,6 @@ const ProjectCard = ({ project }) => {
 									{ icon: faGithub, link: project.githubLink },
 									{ icon: faExternalLinkAlt, link: project.externalLink },
 								].map((iconLink) => {
-									console.log(iconLink.link);
 									return (
 										<Grid item xs={6} align='center' key={uuidv4()}>
 											<ExternalLink

@@ -20,6 +20,9 @@ function App() {
 			blurb,
 			"coverImage": coverImage.asset->url,
 			githubLink,
+			externalLink,
+			created,
+			technolgies,
 		  }
 		  `);
 

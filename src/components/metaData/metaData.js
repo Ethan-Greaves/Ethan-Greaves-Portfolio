@@ -12,7 +12,7 @@ const MetaData = ({ props }) => {
 
 			{/* Load favicon. set height to 32px, convert to webp for better compression, set background to theme primary colour */}
 			{/* bg url param takes hex colour without the '#' e.g. 'FF0000'. So use substring to remove first letter in string  */}
-			<link rel='icon' href={`${props.metaFavicon}?h=32&fm=webp&bg=${props.primaryColour.substring(1)}`} />
+			<link rel='icon' href={`${props.metaFavicon}?h=32&w=32&fm=webp&bg=${props.primaryColour.substring(1)}`} />
 
 			{/* Open graph tags */}
 			<meta property='og:type' content='website' />

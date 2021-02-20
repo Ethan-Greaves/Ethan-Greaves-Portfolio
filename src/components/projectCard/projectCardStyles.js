@@ -1,30 +1,29 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
 	title: {
 		fontWeight: '600',
 	},
 
 	card: {
-		borderBottomLeftRadius: '15px',
-		borderTopRightRadius: '15px',
+		// borderBottomLeftRadius: '15px',
+		// borderTopRightRadius: '15px',
 		// border: `4px solid ${props.primaryColour}`,
 		'&:hover $overlay': {
-			opacity: 0.8,
+			opacity: 0.85,
 		},
 	},
 
-	image: {},
-
 	content: {
 		// position: 'absolute',
-		color: 'white',
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'center',
+		paddingRight: '20px',
+		paddingLeft: '20px',
 	},
 
 	overlay: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
 		position: 'absolute',
 		top: 0,
 		bottom: 0,
@@ -36,6 +35,6 @@ const useStyles = makeStyles({
 		transition: '.5 ease',
 		backgroundColor: '#030303',
 	},
-});
+}));
 
 export default useStyles;

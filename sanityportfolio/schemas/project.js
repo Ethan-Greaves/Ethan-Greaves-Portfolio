@@ -1,3 +1,4 @@
+import skills from './author/skills';
 const blurbMaxLength = 100;
 
 const projectSchema = {
@@ -35,7 +36,10 @@ const projectSchema = {
 			description: 'List the technologies, software and languages used on this project',
 			type: 'array',
 			of: [{ type: 'string' }],
-			validation: (Rule) => Rule.unique(),
+			validation: (Rule) => [Rule.unique()],
+			options: {
+				list: skills,
+			},
 		},
 		{
 			name: 'coverImage',
@@ -48,24 +52,6 @@ const projectSchema = {
 			fieldset: 'media',
 		},
 		{
-			name: 'images',
-			title: 'Images',
-			description: 'Images that will be displayed on the show page for the project.',
-			type: 'array',
-			of: [{ type: 'image' }],
-			fieldset: 'media',
-		},
-		{
-			name: 'video',
-			title: 'Video',
-			description: 'Video that will be displayed on the show page',
-			type: 'file',
-			options: {
-				accept: ['.mp4', '.mov', '.wmv', '.flv', '.avi', '.webm', '.mkv'],
-			},
-			fieldset: 'media',
-		},
-		{
 			name: 'blurb',
 			title: 'Blurb',
 			description: 'A short summary of the project',
@@ -74,29 +60,16 @@ const projectSchema = {
 			validation: (Rule) =>
 				Rule.max(blurbMaxLength).error(`Don't make the blurb too long! (${blurbMaxLength} characters)`),
 		},
-		{
-			name: 'description',
-			title: 'Description',
-			description: 'Description of the project. Can include technologies used, what the project does, etc.',
-			type: 'text',
-		},
-		{
-			name: 'features',
-			title: 'Features',
-			description: 'List the main parts of the project.',
-			type: 'array',
-			of: [{ type: 'string' }],
-			validation: (Rule) => [Rule.unique(), Rule.max(6)],
-		},
-		{
-			name: 'reflection',
-			title: 'Reflection',
-			description: `Describe what you learned and what went well, say what didn't go so well and where you would improve/what you would do in the future.`,
-			type: 'text',
-		},
+
 		{
 			name: 'githubLink',
 			title: 'GitHub link',
+			type: 'url',
+		},
+		{
+			name: 'externalLink',
+			title: 'External link',
+			description: 'Link to live demo, .exe download, hosted page, etc.',
 			type: 'url',
 		},
 	],

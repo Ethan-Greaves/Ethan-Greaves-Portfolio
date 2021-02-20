@@ -1,5 +1,5 @@
-import { Box, Card, CardActionArea, CardContent, CardHeader, CardMedia, Grid, Typography } from '@material-ui/core';
-import React, { useState } from 'react';
+import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from '@material-ui/core';
+import React from 'react';
 import projectCardStyles from './projectCardStyles';
 import ExternalLink from '../../Wrappers/externalLink';
 import { useTheme } from '@material-ui/core/styles';
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import LazyLoad from 'react-lazyload';
+import generalStyles from '../../commonStyles/generalStyles';
 
 const ProjectCard = ({ project }) => {
 	const themePalette = useTheme().palette;
@@ -29,22 +30,36 @@ const ProjectCard = ({ project }) => {
 							className={`${styles.image}`}
 						/>
 					</LazyLoad>
+
 					<div className={`${styles.overlay}`}>
 						<div className={`${styles.content}`}>
-							<Box mt={1} />
 							<Typography variant='h6' color='primary' align='center'>
 								{project.title}
 							</Typography>
-							<Typography align='center' color='secondary'>
+							<Typography align='center' color='secondary' variant='body2'>
 								{project.blurb}
 							</Typography>
 							<Box mt={2} />
-							<Grid container align='center'>
-								{[faGithub, faExternalLinkAlt].map((icon) => {
+
+							<Grid container>
+								{[
+									{ icon: faGithub, link: project.githubLink },
+									{ icon: faExternalLinkAlt, link: project.externalLink },
+								].map((iconLink) => {
+									console.log(iconLink.link);
 									return (
-										<Grid item xs={6}>
-											<ExternalLink newTab={true} noopener={true} to={project.githubLink}>
-												<FontAwesomeIcon icon={icon} size='3x' style={{ color: 'red' }} />
+										<Grid item xs={6} align='center'>
+											<ExternalLink
+												newTab={true}
+												noopener={true}
+												to={iconLink.link}
+												ariaLabel={project.title}
+											>
+												<FontAwesomeIcon
+													icon={iconLink.icon}
+													size='2x'
+													style={{ color: 'white' }}
+												/>
 											</ExternalLink>
 										</Grid>
 									);
@@ -54,9 +69,6 @@ const ProjectCard = ({ project }) => {
 					</div>
 				</CardActionArea>
 			</Card>
-			{/* <LazyLoad placeholder={<p>loading...</p>} once={true}>
-				<img src={project.coverImage + '?h=150&w=150&auto=format'} alt={project.title} />
-			</LazyLoad> */}
 		</div>
 	);
 };

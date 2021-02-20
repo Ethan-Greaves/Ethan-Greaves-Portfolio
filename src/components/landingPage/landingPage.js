@@ -32,7 +32,7 @@ const LandingPage = ({ ...authorData }) => {
 				{authorData.name}
 			</Typography>
 
-			<Typography align='center' variant='h5'>
+			<Typography align='center' variant='h5' component='h2'>
 				<div className='subHeading' onAnimationStart={setRandomRole} onAnimationIteration={setRandomRole}>
 					{currentDisplayedRole ? currentDisplayedRole : setRandomRole()}
 				</div>

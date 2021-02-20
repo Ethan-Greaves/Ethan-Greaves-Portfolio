@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 
 	arrow: {
-		animation: '$float 1s infinite',
+		// animation: '$float 1s infinite',
+		transitionTimingFunction: 'linear',
 		color: theme.palette.primary.main,
 		position: 'absolute',
 		bottom: 0,

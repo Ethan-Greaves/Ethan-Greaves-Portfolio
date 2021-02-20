@@ -10,7 +10,7 @@
 
 ## Overview 📖
 
-My portfolio website which showcases my skills/the technologies I know, my projects, and contact/social information. Sanity.io is used as a headless CMS, this is a vast improvement over [my previous portfolio](https://ethan-greaves.github.io/Portfolio/) where all the content was hard-coded. React was used to build the front end which allowed for faster development speed and made website scalability easier.
+My portfolio website which showcases my skills/the technologies I know, my projects, and contact/social information. [Sanity.io](https://www.sanity.io/) is used as a headless CMS, this is a vast improvement over [my previous portfolio](https://ethan-greaves.github.io/Portfolio/) where all the content was hard-coded. React was used to build the front end which allowed for faster development speed and made website scalability easier.
 
 ## Technologies used 👨‍💻
 

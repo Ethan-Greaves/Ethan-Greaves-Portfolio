@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import aboutPageStyles from './aboutPageStyles';
 import generalStyles from '../../commonStyles/generalStyles';
-import VerticallyPaddedContainer from '../../Wrappers/verticalPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/VerticalPaddedContainer';
 import buttonStyles from '../../commonStyles/buttonStyles';
 import ExternalLink from '../../Wrappers/externalLink';
 

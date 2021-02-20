@@ -1,6 +1,6 @@
 import { Typography, Grid, Box } from '@material-ui/core';
 import React from 'react';
-import VerticallyPaddedContainer from '../../Wrappers/verticalPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/VerticalPaddedContainer';
 import generalStyles from '../../commonStyles/generalStyles';
 import ExternalLink from '../../Wrappers/externalLink';
 import LazyLoad from 'react-lazyload';

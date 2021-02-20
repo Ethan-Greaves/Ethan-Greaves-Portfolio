@@ -2,7 +2,7 @@
 import React, { Suspense } from 'react';
 import Grid from '@material-ui/core/Grid';
 import generalStyles from '../../commonStyles/generalStyles';
-import VerticallyPaddedContainer from '../../Wrappers/verticalPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/VerticalPaddedContainer';
 import projectStyles from './projectsStyles';
 import { Box, Typography } from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';

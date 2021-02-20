@@ -3,7 +3,7 @@ import Zoom from '@material-ui/core/Zoom';
 import { Tooltip, Grid, Box, Typography } from '@material-ui/core';
 import skillsStyles from './skillsStyles';
 import generalStyles from '../../commonStyles/generalStyles';
-import VerticallyPaddedContainer from '../../Wrappers/verticalPaddedContainer';
+import VerticallyPaddedContainer from '../../Wrappers/VerticalPaddedContainer';
 import LazyLoad from 'react-lazyload';
 import { v4 as uuidv4 } from 'uuid';
 

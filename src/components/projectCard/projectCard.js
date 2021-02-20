@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import LazyLoad from 'react-lazyload';
+import { v4 as uuidv4 } from 'uuid';
 
 const ProjectCard = ({ project }) => {
 	const themePalette = useTheme().palette;
@@ -47,7 +48,7 @@ const ProjectCard = ({ project }) => {
 								].map((iconLink) => {
 									console.log(iconLink.link);
 									return (
-										<Grid item xs={6} align='center'>
+										<Grid item xs={6} align='center' key={uuidv4()}>
 											<ExternalLink
 												newTab={true}
 												noopener={true}

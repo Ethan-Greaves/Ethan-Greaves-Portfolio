@@ -1,5 +1,5 @@
 //#region IMPORTS
-import React, { Suspense } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import generalStyles from '../../commonStyles/generalStyles';
 import VerticallyPaddedContainer from '../../Wrappers/VerticalPaddedContainer';

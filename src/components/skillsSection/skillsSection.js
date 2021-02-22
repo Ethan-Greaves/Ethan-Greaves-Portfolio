@@ -1,14 +1,13 @@
 import React from 'react';
-import Zoom from '@material-ui/core/Zoom';
-import { Tooltip, Grid, Box, Typography } from '@material-ui/core';
-import skillsStyles from './skillsStyles';
+import { Grid, Box, Typography } from '@material-ui/core';
+import Skill from '../skill/skill';
+import skillsSectionStyles from './skillsSectionStyles';
 import generalStyles from '../../commonStyles/generalStyles';
 import VerticallyPaddedContainer from '../../Wrappers/VerticalPaddedContainer';
-import LazyLoad from 'react-lazyload';
 import { v4 as uuidv4 } from 'uuid';
 
 const Skills = ({ skills }) => {
-	const styles = skillsStyles();
+	const styles = skillsSectionStyles();
 
 	return (
 		<VerticallyPaddedContainer>
@@ -28,15 +27,7 @@ const Skills = ({ skills }) => {
 					{skills.map((skill) => {
 						return (
 							<Grid item xs={4} sm={3} key={uuidv4()}>
-								<LazyLoad placeholder={<p>loading...</p>} once={true}>
-									<Tooltip title={skill} TransitionComponent={Zoom}>
-										<img
-											className={`${styles.skillImg}`}
-											src={`https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${skill.toLowerCase()}/${skill.toLowerCase()}.png`}
-											alt={skill}
-										/>
-									</Tooltip>
-								</LazyLoad>
+								<Skill skill={skill} imgSize={90} />
 							</Grid>
 						);
 					})}

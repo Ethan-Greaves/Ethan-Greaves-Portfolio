@@ -31,7 +31,7 @@ const projectSchema = {
 			},
 		},
 		{
-			name: 'technolgies',
+			name: 'technologies',
 			title: 'Technologies',
 			description: 'List the technologies, software and languages used on this project',
 			type: 'array',

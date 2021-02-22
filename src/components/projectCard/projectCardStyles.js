@@ -6,13 +6,16 @@ const useStyles = makeStyles((theme) => ({
 	},
 
 	card: {
-		// borderBottomLeftRadius: '15px',
-		// borderTopRightRadius: '15px',
-		// border: `4px solid ${props.primaryColour}`,
+		borderBottomLeftRadius: '15px',
+		borderTopRightRadius: '15px',
+		// border: `4px solid ${theme.palette.primary.main}`,
+
 		'&:hover $overlay': {
 			opacity: 0.85,
 		},
 	},
+
+	image: {},
 
 	content: {
 		// position: 'absolute',
@@ -32,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 		height: '100%',
 		width: '100%',
 		opacity: 0,
-		transition: '.5 ease',
+		transition: '.3s',
 		backgroundColor: '#030303',
 	},
 }));

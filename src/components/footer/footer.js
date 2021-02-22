@@ -28,7 +28,7 @@ const Footer = ({ ...authorData }) => {
 					);
 				})}
 			</Grid>
-			<Box mt={6} />
+			<Box mt={8} />
 
 			<Typography color='secondary' variant='caption'>
 				{`Developed by ${authorData.name}`} <span>&#169;</span> {new Date().getFullYear()}

@@ -12,7 +12,7 @@ import Scrollbar from './components/scrollbar/scrollbar';
 const AboutPage = React.lazy(() => import('./components/aboutPage/aboutPage'));
 const Projects = React.lazy(() => import('./components/projects/projects'));
 const Footer = React.lazy(() => import('./components/footer/footer'));
-const Skills = React.lazy(() => import('./components/skills/skills'));
+const Skills = React.lazy(() => import('./components/skillsSection/skillsSection'));
 
 function App() {
 	const [projectData, projectDataIsLoaded] = useSanityFetchState(`*[_type == "project"]{
@@ -22,7 +22,7 @@ function App() {
 			githubLink,
 			externalLink,
 			created,
-			technolgies,
+			technologies,
 		  }
 		  `);
 

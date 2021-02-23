@@ -9,6 +9,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import LazyLoad from 'react-lazyload';
 import Skill from '../skill/skill';
 import { v4 as uuidv4 } from 'uuid';
+import LoadingIcon from '../loadingIcon/loadingIcon';
 
 const ProjectCard = ({ project }) => {
 	const themePalette = useTheme().palette;
@@ -24,7 +25,7 @@ const ProjectCard = ({ project }) => {
 			<Card variant='outlined' className={`${styles.card}`}>
 				<CardActionArea>
 					{/* Image */}
-					<LazyLoad placeholder={<p>loading...</p>} once={true}>
+					<LazyLoad placeholder={<LoadingIcon />} once={true}>
 						<CardMedia
 							image={project.coverImage + '?h=300&fm=webp'}
 							title={project.title}

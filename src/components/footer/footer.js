@@ -5,6 +5,7 @@ import generalStyles from '../../commonStyles/generalStyles';
 import ExternalLink from '../../Wrappers/externalLink';
 import LazyLoad from 'react-lazyload';
 import { v4 as uuidv4 } from 'uuid';
+import LoadingIcon from '../loadingIcon/loadingIcon';
 
 const Footer = ({ ...authorData }) => {
 	return (
@@ -20,7 +21,7 @@ const Footer = ({ ...authorData }) => {
 					return (
 						<Grid item key={uuidv4()}>
 							<ExternalLink newTab={true} to={social.link} noopener={true}>
-								<LazyLoad placeholder={<p>Loading...</p>} once={true}>
+								<LazyLoad placeholder={<LoadingIcon />} once={true}>
 									<img src={social.image + '?h=40&fm=webp'} alt={social.platform} />
 								</LazyLoad>
 							</ExternalLink>

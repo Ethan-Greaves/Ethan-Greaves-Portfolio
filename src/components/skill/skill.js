@@ -3,11 +3,12 @@ import LazyLoad from 'react-lazyload';
 import Zoom from '@material-ui/core/Zoom';
 import { Tooltip } from '@material-ui/core';
 import skillsStyles from './skillStyles';
+import LoadingIcon from '../loadingIcon/loadingIcon';
 
 const Skill = ({ imgSize, skill }) => {
 	const styles = skillsStyles({ imgSize });
 	return (
-		<LazyLoad placeholder={<p>loading...</p>} once={true}>
+		<LazyLoad placeholder={<LoadingIcon />} once={true}>
 			<Tooltip title={skill} TransitionComponent={Zoom}>
 				<img
 					className={`${styles.skillImg}`}

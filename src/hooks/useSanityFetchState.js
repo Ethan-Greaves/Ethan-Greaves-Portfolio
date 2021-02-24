@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react';
 import useToggle from './useToggle';
 import sanityClient from '../client';
 
-const UseSanityFetchState = (requestedData) => {
+const UseSanityFetchState = (request) => {
 	const [data, setData] = useState([]);
 	const [isLoaded, toggleIsLoaded] = useToggle(false);
 
 	useEffect(() => {
-		if (!requestedData) return;
+		if (!request) return;
 
 		try {
 			const fetchData = async () => {
-				const response = await sanityClient.fetch(requestedData);
+				const response = await sanityClient.fetch(request);
 				setData(response);
 				toggleIsLoaded();
 			};

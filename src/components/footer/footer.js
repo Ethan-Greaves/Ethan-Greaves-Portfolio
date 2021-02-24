@@ -20,7 +20,7 @@ const Footer = ({ ...authorData }) => {
 				{authorData.socials.map((social) => {
 					return (
 						<Grid item key={uuidv4()}>
-							<ExternalLink newTab={true} to={social.link} noopener={true}>
+							<ExternalLink newTab to={social.link} noopener ariaLabel={social.platform}>
 								<LazyLoad placeholder={<LoadingIcon />} once={true}>
 									<img src={social.image + '?h=40&fm=webp'} alt={social.platform} />
 								</LazyLoad>

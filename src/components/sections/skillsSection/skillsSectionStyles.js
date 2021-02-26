@@ -1,11 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-	header: {
-		fontWeight: 400,
-		borderBottom: `.007px solid ${theme.palette.primary.main}`,
-		maxWidth: 'fit-content',
-	},
 
 	'@media (max-width: 426px)': {
 		skillImg: {

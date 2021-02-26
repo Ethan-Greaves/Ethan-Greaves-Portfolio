@@ -16,27 +16,12 @@ const useStyles = makeStyles((theme) => ({
 	},
 
 	arrow: {
-		// animation: '$float 1s infinite',
 		transitionTimingFunction: 'linear',
 		color: theme.palette.primary.main,
 		position: 'absolute',
 		bottom: 0,
 		left: '50%',
 		marginBottom: '1.5em',
-	},
-
-	'@keyframes float': {
-		'0%': {
-			transform: 'translatey(0px)',
-		},
-
-		'50%': {
-			transform: 'translatey(-5px)',
-		},
-
-		'100%': {
-			transform: 'translatey(0px)',
-		},
 	},
 }));
 

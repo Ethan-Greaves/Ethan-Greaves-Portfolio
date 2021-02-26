@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import LazyLoad from 'react-lazyload';
-import Skill from '../skill/skill';
 import { v4 as uuidv4 } from 'uuid';
 import LoadingIcon from '../loadingIcon/loadingIcon';
 
@@ -18,11 +17,11 @@ const ProjectCard = ({ project }) => {
 	});
 	return (
 		<div>
-			<Typography variant='body2' color='secondary' className={`${styles.title}`} gutterBottom={true}>
-				{`${project.title}`.toUpperCase()}
+			<Typography variant='body2' color='secondary' className={styles.title} gutterBottom>
+				{project.title.toUpperCase()}
 			</Typography>
 
-			<Card variant='outlined' className={`${styles.card}`}>
+			<Card variant='outlined' className={styles.card}>
 				<CardActionArea>
 					{/* Image */}
 					<LazyLoad placeholder={<LoadingIcon />} once={true}>
@@ -30,13 +29,13 @@ const ProjectCard = ({ project }) => {
 							image={project.coverImage + '?h=300&fm=webp'}
 							title={project.title}
 							style={{ height: 225 }}
-							className={`${styles.image}`}
+							className={styles.image}
 						/>
 					</LazyLoad>
 
 					{/* Overlay */}
-					<div className={`${styles.overlay}`}>
-						<div className={`${styles.content}`}>
+					<div className={styles.overlay}>
+						<div className={styles.content}>
 							{/* Title */}
 							<Typography variant='h6' color='primary' align='center'>
 								{project.title}

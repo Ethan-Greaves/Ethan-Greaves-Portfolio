@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LoadingIconStyles from './loadingIconStyles';
 
 const LoadingIcon = () => {
-	const styles = LoadingIconStyles();
-	return <div className={`${styles.loadingIcon}`}></div>;
+	return <div className={LoadingIconStyles().loadingIcon}></div>;
 };
 
 export default LoadingIcon;

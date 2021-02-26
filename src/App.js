@@ -8,10 +8,10 @@ import LandingPage from './components/landingPage/landingPage';
 import MetaData from './components/metaData/metaData';
 import Scrollbar from './components/scrollbar/scrollbar';
 
-const AboutPage = React.lazy(() => import('./components/aboutPage/aboutPage'));
-const Projects = React.lazy(() => import('./components/projects/projects'));
-const Footer = React.lazy(() => import('./components/footer/footer'));
-const Skills = React.lazy(() => import('./components/skillsSection/skillsSection'));
+const AboutPage = React.lazy(() => import('./components/sections/aboutPage/aboutPage'));
+const Projects = React.lazy(() => import('./components/sections/projects/projects'));
+const Footer = React.lazy(() => import('./components/sections/footer/footer'));
+const Skills = React.lazy(() => import('./components/sections/skillsSection/skillsSection'));
 //#endregion
 
 function App() {

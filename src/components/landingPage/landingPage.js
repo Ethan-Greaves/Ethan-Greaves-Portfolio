@@ -17,7 +17,7 @@ const LandingPage = ({ ...authorData }) => {
 	//#region CUSTOM METHODS
 	const setRandomRole = () => {
 		setCurrentDisplayedRole(
-			//*Filter to return an array without the previous role and randomly choose from it
+			//*Filter to return an array without the previous role
 			authorData.roles.filter((role) => role !== currentDisplayedRole)[
 				//* Select randomly from roles array and floor number to avoid decimals
 				Math.floor(Math.random() * authorData.roles.length)
@@ -27,8 +27,8 @@ const LandingPage = ({ ...authorData }) => {
 	//#endregion
 
 	return (
-		<div className={`${styles.header}`}>
-			<Typography variant='h1' align='center' className={`${styles.standOut}`}>
+		<div className={styles.header}>
+			<Typography variant='h1' align='center' className={styles.standOut}>
 				{authorData.name}
 			</Typography>
 
@@ -41,7 +41,7 @@ const LandingPage = ({ ...authorData }) => {
 			<Box pt={4} />
 
 			<a href='#skills' aria-label='Skills section'>
-				<FontAwesomeIcon icon={faChevronDown} size='1x' className={`${styles.arrow}`} />
+				<FontAwesomeIcon icon={faChevronDown} size='1x' className={styles.arrow} />
 			</a>
 		</div>
 	);

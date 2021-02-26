@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
 	card: {
 		borderBottomLeftRadius: '15px',
 		borderTopRightRadius: '15px',
-		// border: `4px solid ${theme.palette.primary.main}`,
 
 		'&:hover $overlay': {
 			opacity: 0.85,
@@ -18,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 	image: {},
 
 	content: {
-		// position: 'absolute',
 		paddingRight: '20px',
 		paddingLeft: '20px',
 	},

@@ -1,11 +1,11 @@
 import { Box, Container } from '@material-ui/core';
 
-const VerticallyPaddedContainer = ({ children, maxWidth = 'md', topPadding = 4, bottomPadding = 4 }) => {
+const VerticallyPaddedContainer = ({ children, maxWidth, pt, pb }) => {
 	return (
 		<Container maxWidth={`${maxWidth}`}>
-			<Box pt={topPadding} />
+			<Box pt={pt} />
 			{children}
-			<Box pt={bottomPadding} />
+			<Box pt={pb} />
 		</Container>
 	);
 };

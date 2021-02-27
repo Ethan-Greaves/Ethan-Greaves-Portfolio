@@ -1,30 +1,14 @@
 //#region IMPORTS
 import { Box, Typography } from '@material-ui/core';
-import React, { useState } from 'react';
+import React from 'react';
 import landingPageStyles from './landingPageStyles';
-import './landingPageAnimations.scss';
-import '../../commonStyles/buttonAnims.scss';
+import Typewriter from '../typewriter/typewriter';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //#endregion
 
 const LandingPage = ({ ...authorData }) => {
-	//#region INITILISATION
-	const [currentDisplayedRole, setCurrentDisplayedRole] = useState('');
 	const styles = landingPageStyles();
-	//#endregion
-
-	//#region CUSTOM METHODS
-	const setRandomRole = () => {
-		setCurrentDisplayedRole(
-			//*Filter to return an array without the previous role
-			authorData.roles.filter((role) => role !== currentDisplayedRole)[
-				//* Select randomly from roles array and floor number to avoid decimals
-				Math.floor(Math.random() * authorData.roles.length)
-			]
-		);
-	};
-	//#endregion
 
 	return (
 		<div className={styles.header}>
@@ -32,11 +16,7 @@ const LandingPage = ({ ...authorData }) => {
 				{authorData.name}
 			</Typography>
 
-			<Typography align='center' variant='h5' component='h2'>
-				<div className='subHeading' onAnimationStart={setRandomRole} onAnimationIteration={setRandomRole}>
-					{currentDisplayedRole ? currentDisplayedRole : setRandomRole()}
-				</div>
-			</Typography>
+			<Typewriter randomWords={authorData.roles} />
 
 			<Box pt={4} />
 

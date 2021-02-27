@@ -51,7 +51,11 @@ function App() {
 	}`);
 	//#endregion
 
-	if (settingsIsLoaded && authorDataIsLoaded && projectDataIsLoaded) {
+	const sanityDataIsLoaded = (settingsIsLoaded, authorDataIsLoaded, projectDataIsLoaded) => {
+		return settingsIsLoaded && authorDataIsLoaded && projectDataIsLoaded;
+	};
+
+	if (sanityDataIsLoaded(settingsIsLoaded, authorDataIsLoaded, projectDataIsLoaded)) {
 		//#region MUI Theme
 		let theme = createMuiTheme({
 			palette: {

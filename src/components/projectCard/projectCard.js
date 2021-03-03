@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import LazyLoad from 'react-lazyload';
-import { v4 as uuidv4 } from 'uuid';
 import LoadingIcon from '../loadingIcon/loadingIcon';
 
 const ProjectCard = ({ project }) => {
@@ -51,10 +50,15 @@ const ProjectCard = ({ project }) => {
 								{[
 									{ icon: faGithub, link: project.githubLink },
 									{ icon: faExternalLinkAlt, link: project.externalLink },
-								].map((iconLink) => {
+								].map((iconLink, i) => {
 									return (
-										<Grid item xs={3} key={uuidv4()}>
-											<ExternalLink newTab noopener to={iconLink.link} ariaLabel={project.title}>
+										<Grid item xs={3} key={i}>
+											<ExternalLink
+												newTab
+												noopener
+												to={iconLink.link}
+												ariaLabel={project.title}
+											>
 												<FontAwesomeIcon
 													icon={iconLink.icon}
 													size='2x'

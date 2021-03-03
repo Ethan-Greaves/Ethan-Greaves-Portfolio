@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Typography } from '@material-ui/core';
 import './typewriter.scss';
 
@@ -17,7 +17,11 @@ const Typewriter = ({ randomWords }) => {
 
 	return (
 		<Typography align='center' variant='h5' component='h2' color='secondary'>
-			<div className='subHeading' onAnimationStart={assignRandomWord} onAnimationIteration={assignRandomWord}>
+			<div
+				className='subHeading'
+				onAnimationStart={assignRandomWord}
+				onAnimationIteration={assignRandomWord}
+			>
 				{/* If current word is not null, show the word. Otherwise, set random word */}
 				{currentWord ? currentWord : assignRandomWord()}
 			</div>
@@ -25,4 +29,4 @@ const Typewriter = ({ randomWords }) => {
 	);
 };
 
-export default Typewriter;
+export default memo(Typewriter);

@@ -1,32 +1,23 @@
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
 import { Typography } from '@material-ui/core';
 import './typewriter.scss';
+import Typewriter from 'typewriter-effect';
 
-const Typewriter = ({ randomWords }) => {
-	const [currentWord, setcurrentWord] = useState('');
-
-	const assignRandomWord = () => {
-		setcurrentWord(
-			//*Filter to return an array without the previous word
-			randomWords.filter((randomWord) => randomWord !== currentWord)[
-				//* Select randomly from randomWords array and floor number to avoid decimals
-				Math.floor(Math.random() * randomWords.length)
-			]
-		);
-	};
-
+const DisplayTypewriter = ({ randomWords }) => {
 	return (
-		<Typography align='center' variant='h5' component='h2' color='secondary'>
-			<div
-				className='subHeading'
-				onAnimationStart={assignRandomWord}
-				onAnimationIteration={assignRandomWord}
-			>
-				{/* If current word is not null, show the word. Otherwise, set random word */}
-				{currentWord ? currentWord : assignRandomWord()}
+		<Typography align="center" variant="h5" component="h2" color="secondary">
+			<div className="subHeading">
+				<Typewriter
+					options={{
+						strings: randomWords,
+						autoStart: true,
+						loop: true,
+						pauseFor: 10000,
+					}}
+				/>
 			</div>
 		</Typography>
 	);
 };
 
-export default memo(Typewriter);
+export default memo(DisplayTypewriter);

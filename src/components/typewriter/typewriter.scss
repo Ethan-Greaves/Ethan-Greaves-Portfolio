@@ -9,10 +9,20 @@ $caret-colour: rgba(
 	white-space: nowrap;
 	margin: 0 auto;
 	letter-spacing: 0.15em;
-	animation: typing 18s infinite steps(55, end);
-	border-right: 0.05em solid;
 	max-width: fit-content;
 }
+
+.Typewriter__cursor{
+	visibility: hidden !important;
+}
+
+.Typewriter__cursor::after{
+	border-right: 0.05em solid !important;
+	content: "";
+	visibility: visible;
+	margin-left: -0.3em;
+}
+
 
 @keyframes typing {
 	0%,

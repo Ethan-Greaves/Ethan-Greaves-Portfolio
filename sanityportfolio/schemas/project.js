@@ -73,6 +73,18 @@ const projectSchema = {
 			type: 'url',
 		},
 	],
+	orderings: [
+		{
+			title: 'Date Created, Latest',
+			name: 'dateCreatedDesc',
+			by: [{ field: 'created', direction: 'desc' }],
+		},
+		{
+			title: 'Date Created, Oldest',
+			name: 'dateCreatedAsc',
+			by: [{ field: 'created', direction: 'Asc' }],
+		},
+	],
 	preview: {
 		select: {
 			title: 'title',

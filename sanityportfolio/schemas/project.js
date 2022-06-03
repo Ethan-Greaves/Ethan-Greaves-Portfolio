@@ -88,6 +88,7 @@ const projectSchema = {
 	preview: {
 		select: {
 			title: 'title',
+			subtitle: 'blurb',
 			media: 'coverImage',
 		},
 	},
